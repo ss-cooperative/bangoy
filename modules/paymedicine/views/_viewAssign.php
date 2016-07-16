@@ -66,15 +66,15 @@
         </div> 
 
     </div>
-
+    <h3>ยาที่จำหน่าย</h3>
  <?php include '_medicine.php'; ?>
 
 
 
-
-        <input type="submit" name="update" value="บันทึก" class="btn btn-success">
-
-        <input type="submit" name="finish" value="เรียบร้อย" class="btn btn-primary">
+<?php if($status==1):?>
+        <input type="submit" name="update" value="รับยาแล้ว" class="btn btn-success">
+        <?php endif; ?>
+       
 
         <input  type="hidden" name="t_no" value="<?= $res_patient->t_no ?>">
 

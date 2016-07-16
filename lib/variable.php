@@ -16,3 +16,6 @@ $p_status[] = ['id' => 4, 'title' => 'หย่าร้าง'];
 $pay_status = [];
 $pay_status[1] = 'ยังไม่ได้จ่ายยา';
 $pay_status[2] = 'จ่ายยาแล้ว';
+
+
+

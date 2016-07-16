@@ -13,7 +13,7 @@ else:
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?=$title?></title>
         <!-- Core CSS - Include with every page -->
-        <link href="<?= $asset_path ?>assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="<?= $asset_path ?>assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" media="all"/>
         <link href="<?= $asset_path ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href="<?= $asset_path ?>assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
         <link href="<?= $asset_path ?>assets/css/style.css" rel="stylesheet" />
@@ -26,7 +26,7 @@ else:
         <!--  wrapper -->
         <div id="wrapper">
             <!-- navbar top -->
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+            <nav class="navbar navbar-default navbar-fixed-top hidden-print" role="navigation" id="navbar">
                 <!-- navbar-header -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -130,7 +130,7 @@ else:
             <!-- end navbar top -->
 
             <!-- navbar side -->
-            <nav class="navbar-default navbar-static-side" role="navigation">
+            <nav class="navbar-default navbar-static-side hidden-print" role="navigation">
                 <!-- sidebar-collapse -->
                 <div class="sidebar-collapse">
                     <?php include('layouts/menu_left.php');?>
@@ -141,7 +141,7 @@ else:
             <!--  page-wrapper -->
             <div id="page-wrapper">
 
-                <div class="row">
+                <div class="row hidden-print">
                     <!-- Page Header -->
                     <div class="col-lg-12">
                         <h1 class="page-header"><?=$title?></h1>

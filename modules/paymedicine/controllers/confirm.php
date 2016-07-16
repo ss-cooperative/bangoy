@@ -19,40 +19,15 @@ if (isset($_POST['update']) || isset($_POST['finish'])) {
             ], ["t_no = '{$_POST['t_no']}'"]);
     echo $db->sql;
     if ($res) {
-        $db->delete('paymedicine', ["t_no = " . $_POST['t_no']]);
-        foreach ($_POST['m_id'] as $key => $val) {
-            if ($_POST['m_id'][$key]) {
-                $res = $db->insert('paymedicine', [
-                    't_no' => $_POST['t_no'],
-                    'm_id' => $_POST['m_id'][$key],
-                    'pay_amount' => $_POST['pay_amount'][$key],
-                    'pay_status' => 1,
-                    'user_id' => $_SESSION['user_id'],
-                ]);
-            }
-        }
-        //app_date
-        $db->delete('appointment', ["t_no = " . $_POST['t_no']]);
-        if ($_POST['app_date']) {
-
-            $app_date = explode(' ', $_POST['app_date']);
-            $res = $db->insert('appointment', [
-                'app_date' => $app_date[0],
-                'app_time' => $app_date[1],
-                'app_reason' => $_POST['app_reason'],
-                'app_status' => 1,
-                'user_id' => $_SESSION['user_id'],
-                "t_no" => $_POST['t_no'],
-                'user_id' => $_SESSION['user_id'],
-                'p_id' => $_POST['p_id']
-            ]);
+        $res_paymedicine = $db->sql('SELECT * FROM paymedicine')->where(["t_no = {$_GET['t_no']}"])->all();
+        foreach ($res_paymedicine as $key => $val) {
+            $res = $db->update('paymedicine', [
+                'pay_status' => 2
+                    ], ["t_no = '{$_POST['t_no']}'"]);
         }
 
-        if (isset($_POST['finish'])) {
-            $db->redirect('treat/heal');
-        } else {
-            $db->redirect('treat/heal', ['p_id' => $_POST['p_id']]);
-        }
+
+        $db->redirect('paymedicine/index');
     } else {
         echo $res->error();
         //exit();
@@ -66,7 +41,7 @@ if (isset($_GET['t_no'])) {
 ')->where(["treat.t_no = '{$_GET['t_no']}'"])->orderBy('treat.t_no DESC')->one();
 //echo $db->sql;
     $title .= $res_patient->p_name . " " . $res_patient->p_surname;
-    $res_paymedicine = $db->sql('SELECT paymedicine.*,medicine.m_name FROM paymedicine INNER JOIN treat ON treat.t_no = paymedicine.t_no INNER JOIN medicine on medicine.m_id = paymedicine.m_id ')->where(["paymedicine.t_no = {$_GET['t_no']}"])->all();
+    $res_paymedicine = $db->sql('SELECT paymedicine.*,medicine.m_name,medicine.m_price FROM paymedicine INNER JOIN treat ON treat.t_no = paymedicine.t_no INNER JOIN medicine on medicine.m_id = paymedicine.m_id ')->where(["paymedicine.t_no = {$_GET['t_no']}"])->all();
 //    echo $db->sql;
 //    print_r($res_paymedicine);
 
