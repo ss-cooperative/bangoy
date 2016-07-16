@@ -22,6 +22,11 @@ define('_theme','bs-siminta-admin');
 
 Usage
 -----
+### การเขียนใช้ Url
+```
+http://localhost/bangoy/index.php?r=module/controller
+```
+
 ### ฐานข้อมูล
 ```php
 # select 
