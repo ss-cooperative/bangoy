@@ -22,7 +22,11 @@ $sql.='
     paymedicine.t_no
 ';
 //echo $sql;
-$data = $db->sql($sql)->all();
+$query = $db->sql($sql);
+$page = pagination(25,$query->count());
+$data = $query->all();
+
+$data = $query->limit($page['start'],$page['size'])->all();
 
 if (isset($_GET['p_id'])) {
 

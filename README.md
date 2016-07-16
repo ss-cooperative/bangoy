@@ -27,7 +27,7 @@ Usage
 http://localhost/bangoy/index.php?r=module/controller
 ```
 
-### ฐานข้อมูล
+### การเรียกใช้งานฐานข้อมูล
 ```php
 # select 
 $db->select('table')->one();

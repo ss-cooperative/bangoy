@@ -17,7 +17,4 @@ $page = pagination(25,$query->count());
 $data = $query->limit($page['start'],$page['size'])->all();
 //print_r($data);
 
-/**
- * privilege สิทธิ
- */
  ?>
