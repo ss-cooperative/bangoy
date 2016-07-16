@@ -22,7 +22,7 @@ define('_theme','bs-siminta-admin');
 
 Usage
 -----
-### การเขียนใช้ Url
+### การเรียกใช้ Url
 ```
 http://localhost/bangoy/index.php?r=module/controller
 ```
