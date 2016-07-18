@@ -14,7 +14,7 @@ INNER JOIN patient ON patient.p_id = treat.p_id ")->where([
     "DATE(treat.t_date) >= '".$_POST['t_date_start']."'",
     "DATE(treat.t_date) <= '".$_POST['t_date_end']."'",
         ])->all();
-echo $db->sql;
+//echo $db->sql;
 $t_date_start =$_POST['t_date_start'];
 $t_date_end =$_POST['t_date_end'];
 }
