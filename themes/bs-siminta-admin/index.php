@@ -28,18 +28,25 @@ else:
             <!-- navbar top -->
             <nav class="navbar navbar-default navbar-fixed-top hidden-print" role="navigation" id="navbar">
                 <!-- navbar-header -->
-                <div class="navbar-header">
+                <div class="navbar-header hidden-sm hidden-md hidden-lg">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
-                        <img src="<?= $asset_path ?>assets/img/logo.png" alt="" width="200"/>
+                    <a class="navbar-brand" href="index.php">
+                        <img src="<?= $asset_path ?>assets/img/logo.png" alt=""  height="70"/>
                     </a>
                 </div>
                 <!-- end navbar-header -->
+                
+                <div class="navbar-form navbar-left hidden-xs" >
+                    <a  href="index.php">
+                    <img src="<?= $asset_path ?>assets/img/logo_label.png" alt="" height="55" />
+                    </a>
+      </div>
+                
                 <!-- navbar-top-links -->
                 <ul class="nav navbar-top-links navbar-right">
                     <!-- main dropdown -->
@@ -131,6 +138,7 @@ else:
 
             <!-- navbar side -->
             <nav class="navbar-default navbar-static-side hidden-print" role="navigation">
+                
                 <!-- sidebar-collapse -->
                 <div class="sidebar-collapse">
                     <?php include('layouts/menu_left.php');?>
@@ -166,7 +174,7 @@ else:
         <script src="<?= $asset_path ?>assets/plugins/bootstrap/bootstrap.min.js"></script>
         <script src="<?= $asset_path ?>assets/plugins/metisMenu/jquery.metisMenu.js"></script>
         <script src="<?= $asset_path ?>assets/plugins/pace/pace.js"></script>
-        <script src="<?= $asset_path ?>assets/scripts/siminta.js"></script>
+<!--        <script src="<?= $asset_path ?>assets/scripts/siminta.js"></script>-->
         <!-- Page-Level Plugin Scripts-->
         <script src="<?= $asset_path ?>assets/plugins/morris/raphael-2.1.0.min.js"></script>
         <script src="<?= $asset_path ?>assets/plugins/morris/morris.js"></script>

@@ -20,7 +20,7 @@
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-4 text-center logo-margin ">
-                    <img src="<?= $asset_path ?>assets/img/logo.png" alt="" width="100%"/>
+                    <img src="<?= $asset_path ?>assets/img/logo_full.png" alt="" width="100%"/>
                 </div>
                 <div class="col-md-4 col-md-offset-4">
                     <div class="login-panel panel panel-default">

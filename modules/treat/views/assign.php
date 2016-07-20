@@ -1,6 +1,10 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <?= $title ?>
+        
+         <div class="pull-right">
+            <a href="index.php?r=patient/update&p_id=<?= $res_patient->p_id ?>" class="btn btn-default btn-xs"><i class="fa fa-edit"></i> แก้ไข</a>
+        </div>
     </div>
     <div class="panel-body">
         <div class="row">

@@ -33,6 +33,6 @@ if (isset($_POST['ok'])) {
     }
 }
 
-$data = $db->select('patient')->where(["p_id = '{$_GET['id']}'"])->one();
+$data = $db->select('patient')->where(["p_id = '{$_GET['p_id']}'"])->one();
 $title = 'แก้ไขข้อมูลผู้ป่วย : '.$data->p_id;
 ?>

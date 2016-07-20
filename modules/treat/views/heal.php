@@ -1,3 +1,6 @@
+
+
+
 <form class="" action="" method="get">
     <input type="hidden" name="r" value="treat/heal">
     <div class="row">
@@ -19,7 +22,12 @@
 
 </form>
 
-
+<?php
+if (isset($_GET['p_id'])&&!$res_patient) {
+    echo 'ไม่พบข้อมูล '.$_GET['p_id'];
+    
+}
+?>
 
 <div class="panel panel-default">
     <div class="panel-heading">
