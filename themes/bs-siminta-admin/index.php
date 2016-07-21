@@ -13,7 +13,7 @@ else:
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?=$title?></title>
         <!-- Core CSS - Include with every page -->
-        <link href="<?= $asset_path ?>assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" media="all"/>
+        <link href="<?= $asset_path ?>assets/plugins/bootstrap/bootstrap.css" rel="stylesheet"/>
         <link href="<?= $asset_path ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href="<?= $asset_path ?>assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
         <link href="<?= $asset_path ?>assets/css/style.css" rel="stylesheet" />
@@ -173,7 +173,7 @@ else:
         
         <script src="<?= $asset_path ?>assets/plugins/bootstrap/bootstrap.min.js"></script>
         <script src="<?= $asset_path ?>assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-        <script src="<?= $asset_path ?>assets/plugins/pace/pace.js"></script>
+<!--        <script src="<?= $asset_path ?>assets/plugins/pace/pace.js"></script>-->
 <!--        <script src="<?= $asset_path ?>assets/scripts/siminta.js"></script>-->
         <!-- Page-Level Plugin Scripts-->
         <script src="<?= $asset_path ?>assets/plugins/morris/raphael-2.1.0.min.js"></script>
