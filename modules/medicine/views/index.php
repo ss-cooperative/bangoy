@@ -1,8 +1,8 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
+<!--    <div class="panel-heading">
         <?= $title ?>
 
-    </div>
+    </div>-->
     <div class="panel-body">
         <p>
         <a href="index.php?r=medicine/create" class="btn btn-success"> เพิ่มข้อมูล</a>

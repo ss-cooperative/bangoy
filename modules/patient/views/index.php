@@ -1,12 +1,12 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
+    <!--<div class="panel-heading">
         <?= $title ?>
         
         
-<!--        <div class="pull-right">
+        <div class="pull-right">
                                 <a href="index.php?r=patient/create" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> เพิ่มข้อมูลผู้ป่วย</a>
-                            </div>-->
-    </div>
+                            </div>
+    </div>-->
     <div class="panel-body">
         <p>
             <a href="index.php?r=patient/create" class="btn btn-success"><i class="fa fa-plus"></i> เพิ่มข้อมูลผู้ป่วย</a>

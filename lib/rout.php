@@ -1,6 +1,6 @@
 <?php
 
-$title = 'My Website';
+$title = 'โรงพยาบาลส่งเสริมสุขภาพตำบลบาโงย';
 $content = '';
 if (isset($_GET['r'])) {
     @list($module, $action) = @explode('/', $_GET['r']);

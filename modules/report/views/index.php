@@ -1,4 +1,3 @@
-<h2>รายงาน</h2>
 <div class="row">
     <!--quick info section -->
     <div class="col-lg-2">
