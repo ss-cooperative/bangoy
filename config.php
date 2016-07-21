@@ -8,8 +8,8 @@ error_reporting ('Off');
  */
 define('host','localhost');
 define('dbname','hospital_db');
-define('username','root');
-define('password','5738980');
+//define('username','root');
+//define('password','');
 
 /**
  * theme
