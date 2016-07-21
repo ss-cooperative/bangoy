@@ -19,7 +19,7 @@ $arrMenu[]=['title'=>'<i class="fa fa-files-o"></i> รายงาน','rout'=>
             <div class="user-info">
                 <div><?=$user->displayname?></div>
                 <div class="user-text-online">
-                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
+                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;กำลังใช้งาน
                 </div>
             </div>
         </div>

@@ -52,11 +52,10 @@ else:
                     <!-- main dropdown -->
                     
 
-                    <li class="dropdown">
+<!--                    <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-2x"></i>
                         </a>
-                        <!-- dropdown alerts-->
                         <ul class="dropdown-menu dropdown-alerts">
                             <li>
                                 <a href="#">
@@ -110,8 +109,8 @@ else:
                                 </a>
                             </li>
                         </ul>
-                        <!-- end dropdown-alerts -->
-                    </li>
+                        
+                    </li>-->
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
