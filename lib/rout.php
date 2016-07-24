@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Router
+ * @author My Name
+ * @author My Name <my.name@example.com>
+ */
 $title = 'โรงพยาบาลส่งเสริมสุขภาพตำบลบาโงย';
 $content = '';
 if (isset($_GET['r'])) {

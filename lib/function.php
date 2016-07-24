@@ -1,5 +1,23 @@
 <?php
 
+
+function convDateToDb($strDate){
+    $year = '0000'; $month = '00'; $day = '00';
+    list($day,$month,$year) = explode('-', $strDate);
+    return @implode('-',[$year,$month,$day]);    
+}
+
+function convDateToDisplay($strDate){
+    $year = '0000'; $month = '00'; $day = '00';
+    list($year,$month,$day) = explode('-', $strDate);
+    return @implode('-',[$day,$month,$year]);    
+}
+
+/**
+ * 
+ * @param type $strDate
+ * @return type
+ */
 function DateThai($strDate) {
     $strYear = date("Y", strtotime($strDate)) + 543;
     $strYear = substr($strYear, 2);
@@ -13,6 +31,11 @@ function DateThai($strDate) {
     return $strDay . " " . $strMonthThai . " " . $strYear ;
 }
 
+/**
+ * 
+ * @param type $strDate
+ * @return type
+ */
 function DateTimeThai($strDate) {
     $strYear = date("Y", strtotime($strDate)) + 543;
     $strYear = substr($strYear, 2);
@@ -26,6 +49,13 @@ function DateTimeThai($strDate) {
     return $strDay . " " . $strMonthThai . " " . $strYear . " " . $strHour . ":" . $strMinute . " น. ";
 }
 
+/**
+ * 
+ * @global type $_GET
+ * @param type $size
+ * @param type $count
+ * @return string
+ */
 function pagination($size, $count) {
     global $_GET;
     
@@ -53,6 +83,12 @@ function pagination($size, $count) {
     return $page;
 }
 
+/**
+ * 
+ * @global type $_GET
+ * @param type $add
+ * @return type
+ */
 function genGet($add=[]) {
     global $_GET;
     $param = [];
@@ -63,6 +99,12 @@ function genGet($add=[]) {
     //$param = $add?  array_merge($param,$add):[];
     return $param ? 'index.php?' . @implode('&', $param) : '';
 }
+
+/**
+ * 
+ * @global type $_GET
+ * @return type
+ */
 function genGetHidden() {
     global $_GET;
     //print_r($_GET);
@@ -76,7 +118,12 @@ function genGetHidden() {
     return $param ?  @implode('', $param) : '';
 }
 
-
+/**
+ * 
+ * @global type $db
+ * @param type $id
+ * @return type
+ */
 function findPrivilege($id){
     global $db;
     $privilege = $db->select("privilege")->where(['pv_id = '.$id])->one();

@@ -1,7 +1,20 @@
 <?php
-
+/**
+ * Class for connect database.
+ * Extended class description
+ * @author Ahamad
+ * @version 0.1
+ * @package DB.PDO
+ */
 class DB extends PDO {
 
+    /**
+     * 
+     * @param type $host
+     * @param type $user
+     * @param type $pass
+     * @return \DB
+     */
     function __construct($host, $user, $pass) {
         try {
             parent::__construct($host, $user, $pass);
@@ -12,13 +25,28 @@ class DB extends PDO {
         }
     }
 
+    /**
+     *
+     * @var type String
+     */
     public $sql;
 
+    /**
+     * 
+     * @param type $sql ฟังก์ชั่นเซ็ต sql
+     * @return \DB
+     */
     public function sql($sql) {
         $this->sql = $sql;
         return $this;
     }
 
+    /**
+     * 
+     * @param type $tb ชื่อตาราง
+     * @param type $field
+     * @return \DB
+     */
     public function select($tb, $field = '*') {
         $this->sql = "SELECT {$field} FROM {$tb}";
         return $this;

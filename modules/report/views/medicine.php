@@ -23,18 +23,18 @@
 
 <div class="panel panel-default">
     <div class="panel-heading hidden-print">
-        <?= $title ?>
+        &nbsp;
         <div class="pull-right">
             <a onclick="window.print(); return false;" class="btn btn-default btn-xs"><i class="fa fa-print"></i></a>
         </div>
     </div>
     <div class="panel-body">
-        <div class="visible-print">
+        
             <h2> <?= $title ?></h2>
              <p>
             <?= DateThai($t_date_start) ?> ถึง <?= DateThai($t_date_end) ?>
              </p>
-        </div>
+       
         <table class="table table-striped table-bordered table-hover dataTable no-footer">
             <tr>
                 <td>รหัสยา</td>
@@ -64,16 +64,18 @@
 </div>
 
 
-<link rel="stylesheet" type="text/css" href="js/datetimepicker-master/jquery.datetimepicker.css">
+<link rel="stylesheet" type="text/css" href="js/bootstrap-datepicker/css/bootstrap-datepicker.css">
 
-<script src="js/datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
+<script src="js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
                 $(function () {
-                    $('#t_date_start').datetimepicker({
-                        format: 'Y-m-d'
+                    $('#t_date_start').datepicker({
+                        autoclose:true,
+                        format: 'dd-mm-yyyy'
                     });
-                    $('#t_date_end').datetimepicker({
-                        format: 'Y-m-d'
+                    $('#t_date_end').datepicker({
+                        autoclose:true,
+                        format: 'dd-mm-yyyy'
                     });
                 });
 </script>
