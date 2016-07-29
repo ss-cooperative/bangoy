@@ -2,7 +2,7 @@
 date_default_timezone_set("Asia/Bangkok");
 session_start();
 
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
+error_reporting(E_ERROR | E_PARSE);
 /**
  * connect db
  */
@@ -16,10 +16,7 @@ define('password','5738980');
  */
 define('_theme','bs-siminta-admin');
 
-
 /*
  * Path Upload
  */
 define('_pathUpload','uploads/');
-
-
