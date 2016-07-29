@@ -7,6 +7,13 @@
  * @package DB.PDO
  */
 class DB extends PDO {
+    
+     /**
+     *
+     * @var type String
+     */
+    public $sql;
+    public $res;
 
     /**
      * 
@@ -25,11 +32,7 @@ class DB extends PDO {
         }
     }
 
-    /**
-     *
-     * @var type String
-     */
-    public $sql;
+   
 
     /**
      * 
@@ -86,6 +89,12 @@ class DB extends PDO {
         return $all;
     }
 
+    /**
+     * เตรียมคำสั่ง
+     * @param type $tb
+     * @param type $field
+     * @return \DB
+     */
     public function insert($tb, $field) {
         $sql = "INSERT INTO {$tb} ";
         $key = [];
@@ -98,8 +107,10 @@ class DB extends PDO {
         }
         $sql.="(" . implode(", ", $key) . ") VALUES ('" . implode("', '", $value) . "')";
         $this->sql = $sql;
-        $query = $this->prepare($this->sql);
-        return $query->execute();
+//        $query = $this->prepare($this->sql);
+//        return $query->execute();
+        $this->sql = $sql;        
+        return $this;
     }
 
     public function update($tb, $field, $where = [], $orWhere = []) {
@@ -114,9 +125,19 @@ class DB extends PDO {
         $sql.=$orWhere ? " OR " . implode(" OR ", $orWhere) : '';
         //echo $sql;
         //exit();
-        $query = $this->prepare($sql);
-        $query = $query->execute();
-        return $query ? $query : $query->errorInfo()[2];
+        $this->sql = $sql;        
+        return $this;
+    }
+    
+    /**
+     * ใช้ต่อจาก insert และ update
+     * @return type
+     */
+    public function save(){
+        $query = $this->prepare($this->sql);
+        $this->res = $query;
+       // $res = $query->execute();
+        return $query?$query->execute():false;
     }
 
     public function delete($tb, $where, $orWhere = []) {
@@ -137,7 +158,7 @@ class DB extends PDO {
     }
 
     public function error() {
-        return $this->errorInfo()[2];
+        return $this->res->errorInfo()[2];
     }
 
     public function count() {

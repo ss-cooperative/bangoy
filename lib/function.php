@@ -130,3 +130,14 @@ function findPrivilege($id){
     return $privilege->pv_id==$id?$privilege->pv_name:'ไม่พบข้อมูล';
 
 }
+
+function genSrcImg($fileName,$sub = 'patient/'){
+    $file = 'uploads/'.$sub.$fileName.'.jpg';
+    $fileStaby = 'uploads/person.jpg';
+    if(file_exists($file)){
+        return $file;
+    }else{
+        return $fileStaby;
+    }
+ 
+}
