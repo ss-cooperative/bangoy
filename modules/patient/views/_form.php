@@ -6,29 +6,34 @@ $privilege = $db->select("privilege")->all();
 <form class="" action="" method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="col-sm-3">
-            <img src="<?=genSrcImg($data->p_id)?>" width="100%" height="200" class="img-thumbnail"/>
+            <img src="<?= genSrcImg($data->p_id) ?>" width="100%" height="200" class="img-thumbnail"/>
             <br/>
             <br/>
-            <input type="file" name="picture" />
-            
+            <?php if (isset($data->p_id)) { ?>
+                <input type="file" name="picture" />
+            <?php } else { ?>
+                กรุณากดบันทึกเพื่อให้ไอดีก่อน
+            <?php } ?>
+
+
         </div>
 
         <div class="col-sm-9">
             <div class="row">
-<!--                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label>รหัสผู้ป่วย</label>
-                        <input class="form-control" type="text" name="p_id" value="<?= $data->p_id ?>">
-                    </div>
-                </div>-->
+                <!--                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>รหัสผู้ป่วย</label>
+                                        <input class="form-control" type="text" name="p_id" value="<?= $data->p_id ?>">
+                                    </div>
+                                </div>-->
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>สิทธิการรักษา</label>                        
                         <select class="form-control" name="pv_id" value="<?= $data->pv_id ?>">
                             <option value="" >เลือกสิทธิ</option>
-                            <?php foreach ($privilege as $val):?>
-                            <option value="<?=$val->pv_id?>" <?=($data->pv_id==$val->pv_id)?'selected':''?>><?=$val->pv_name?></option>
-                            <?php endforeach;?>
+                            <?php foreach ($privilege as $val): ?>
+                                <option value="<?= $val->pv_id ?>" <?= ($data->pv_id == $val->pv_id) ? 'selected' : '' ?>><?= $val->pv_name ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
@@ -72,12 +77,12 @@ $privilege = $db->select("privilege")->all();
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>เพศ</label><br>                                             
-                        
-                        <?php foreach ($sex as $val):?>
-                        <input name="p_sex" type="radio" id="p_sex<?=$val['sex']?>" value="<?=$val['sex']?>" <?=($val['sex']==$data->p_sex)?'checked':''?> />
-                        <label for ="p_sex<?=$val['sex']?>"><?=$val['title']?></label>
-                        <?php endforeach;?>
-                        
+
+                        <?php foreach ($sex as $val): ?>
+                            <input name="p_sex" type="radio" id="p_sex<?= $val['sex'] ?>" value="<?= $val['sex'] ?>" <?= ($val['sex'] == $data->p_sex) ? 'checked' : '' ?> />
+                            <label for ="p_sex<?= $val['sex'] ?>"><?= $val['title'] ?></label>
+                        <?php endforeach; ?>
+
 
                     </div>
                 </div>
@@ -93,14 +98,14 @@ $privilege = $db->select("privilege")->all();
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>สถานภาพ</label>
-                       
-                        
-                        
+
+
+
                         <select class="form-control" name="p_status" value="<?= $data->p_status ?>">
                             <option value="" >เลือกสถานภาพ</option>
-                            <?php foreach ($p_status as $val):?>
-                            <option value="<?=$val['id']?>" <?=($data->p_status==$val['id'])?'selected':''?>><?=$val['title']?></option>
-                            <?php endforeach;?>
+                            <?php foreach ($p_status as $val): ?>
+                                <option value="<?= $val['id'] ?>" <?= ($data->p_status == $val['id']) ? 'selected' : '' ?>><?= $val['title'] ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
 
@@ -191,7 +196,7 @@ $privilege = $db->select("privilege")->all();
 
             <input type="submit" name="ok" value="บันทึก" class="btn btn-success">
 
-          
+
         </div>
     </div>  
 </form>

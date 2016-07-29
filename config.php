@@ -15,3 +15,11 @@ define('password','5738980');
  * theme
  */
 define('_theme','bs-siminta-admin');
+
+
+/*
+ * Path Upload
+ */
+define('_pathUpload','uploads/');
+
+
