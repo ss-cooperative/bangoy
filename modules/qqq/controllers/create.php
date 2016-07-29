@@ -9,7 +9,7 @@ if (isset($_POST['ok'])) {
         'qstatus' => $_POST['qstatus'],
         'qdate' => $_POST['qdate'],
     ]);
-    if ($res) {
+    if ($res->save()) {
         $db->redirect('qqq/index');
     } else {
         

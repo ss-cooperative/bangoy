@@ -18,7 +18,7 @@ if (isset($_POST['update']) || isset($_POST['finish'])) {
         'resultjude' => $_POST['resultjude'],
             ], ["t_no = '{$_POST['t_no']}'"]);
     echo $db->sql;
-    if ($res) {
+    if ($res->save()) {
         $res_paymedicine = $db->sql('SELECT * FROM paymedicine')->where(["t_no = {$_GET['t_no']}"])->all();
         foreach ($res_paymedicine as $key => $val) {
             $res = $db->update('paymedicine', [

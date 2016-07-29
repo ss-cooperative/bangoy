@@ -18,7 +18,7 @@ if (isset($_POST['update']) || isset($_POST['finish'])) {
         'resultjude' => $_POST['resultjude'],
             ], ["t_no = '{$_POST['t_no']}'"]);
     echo $db->sql;
-    if ($res) {
+    if ($res->save()) {
         $db->delete('paymedicine', ["t_no = " . $_POST['t_no']]);
         foreach ($_POST['m_id'] as $key => $val) {
             if ($_POST['m_id'][$key]) {

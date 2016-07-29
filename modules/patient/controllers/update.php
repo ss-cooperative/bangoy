@@ -25,10 +25,10 @@ if (isset($_POST['ok'])) {
          ], ["p_id = '{$_GET['p_id']}'"]);
 
 
-    if ($res) {
+    if ($res->save()) {
         $db->redirect('patient/index');
     } else {
-        echo $res;
+        echo $res->error();
         exit();
     }
 }

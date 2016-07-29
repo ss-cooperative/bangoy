@@ -17,10 +17,11 @@ if (isset($_POST['ok'])) {
         'm_detail' => $_POST['m_detail'],
         'm_exp' => $_POST['m_exp'],
     ]);
-    if ($res) {
+    if ($res->save()) {
         $db->redirect('medicine/index');
     } else {
-        
+        echo $res->error();
+        exit();
     }
 }
 

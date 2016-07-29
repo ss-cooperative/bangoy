@@ -6,7 +6,7 @@ $privilege = $db->select("privilege")->all();
 <form class="" action="" method="post">
     <div class="row">
         <div class="col-sm-3">
-            <img src="#" width="100%" height="200"/>
+            <img src="<?=genSrcImg($data->p_id)?>" width="100%" height="200"/>
         </div>
 
         <div class="col-sm-9">

@@ -18,10 +18,11 @@ if (isset($_POST['ok'])) {
             ], ["m_id = '{$_GET['id']}'"]);
 
 
-    if ($res) {
+    if ($res->save()) {
         $db->redirect('medicine/index');
     } else {
         echo $res->error();
+        exit();
     }
 }
 

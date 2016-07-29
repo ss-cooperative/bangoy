@@ -15,7 +15,7 @@ $res = $db->insert('qqq', [
     'qno'=>($qno+1)
         ]);
 echo $db->sql;
-if ($res) {
+if ($res->save()) {
     $db->redirect('qqq/index');
 } else {
     echo $db->error();

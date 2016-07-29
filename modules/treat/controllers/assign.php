@@ -25,7 +25,7 @@ if (isset($_POST['save'])) {
         'resultjude' => $_POST['resultjude'],
     ]);
     echo $db->sql;
-    if ($res) {
+    if ($res->save()) {
         $db->redirect('treat/assign', ['t_no' => $db->lastInsert()]);
     } else {
         echo $db->error();
@@ -47,7 +47,7 @@ if (isset($_POST['update'])) {
             ], ["t_no = '{$_POST['t_no']}'"]);
 
 
-    if ($res) {
+    if ($res->save()) {
         $db->delete('paymedicine', ['t_no' => $_POST['t_no']]);
         foreach ($_POST['m_id'] as $key=>$val) {
             if($_POST['m_id'][$key])

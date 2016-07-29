@@ -51,10 +51,11 @@ if (isset($_POST['ok'])) {
         'relationship' => $_POST['relationship'],
         'pv_id' => $_POST['pv_id'],
     ]);
-    if ($res) {
+    if ($res->save()) {
         $db->redirect('patient/detail',['p_id'=>$p_id]);
     } else {
-        echo $db->error();
+        echo $res->error();
+        exit();
     }
 }
 
