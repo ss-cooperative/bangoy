@@ -29,6 +29,7 @@ if (isset($_POST['ok'])) {
     
     
     $p_id = checkPid();
+    $_POST['pv_id'] = isset($_POST['pv_id'])?$_POST['pv_id']:1;
     $res = $db->insert('patient', [
         'p_id' => $p_id,
         'p_name' => $_POST['p_name'],

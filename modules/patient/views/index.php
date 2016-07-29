@@ -52,7 +52,7 @@
                         <?= $val->p_id ?>
                     </td>
                     <td>
-                        <a href="index.php?r=patient/detail&id=<?= $val->p_id ?>"><?= $val->p_name . " " . $val->p_surname; ?></a>
+                        <a href="index.php?r=patient/detail&p_id=<?= $val->p_id ?>"><?= $val->p_name . " " . $val->p_surname; ?></a>
                     </td>
                     <td>
                         <?= findPrivilege($val->pv_id) ?>

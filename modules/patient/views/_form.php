@@ -3,10 +3,14 @@ $privilege = $db->select("privilege")->all();
 ?>
 
 
-<form class="" action="" method="post">
+<form class="" action="" method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="col-sm-3">
-            <img src="<?=genSrcImg($data->p_id)?>" width="100%" height="200"/>
+            <img src="<?=genSrcImg($data->p_id)?>" width="100%" height="200" class="img-thumbnail"/>
+            <br/>
+            <br/>
+            <input type="file" name="picture" />
+            
         </div>
 
         <div class="col-sm-9">

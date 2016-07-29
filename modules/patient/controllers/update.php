@@ -1,7 +1,12 @@
 <?php
 
 if (isset($_POST['ok'])) {
-    //print_r($_POST);
+    //print_r($_FILES);
+    uploadFile($_FILES['picture'],'patient',$_GET['p_id']);
+    //exit();
+    
+    
+    
     $res = $db->update('patient', [
         'p_name' => $_POST['p_name'],
         'p_surname' => $_POST['p_surname'],
@@ -35,4 +40,3 @@ if (isset($_POST['ok'])) {
 
 $data = $db->select('patient')->where(["p_id = '{$_GET['p_id']}'"])->one();
 $title = 'แก้ไขข้อมูลผู้ป่วย : '.$data->p_id;
-?>
