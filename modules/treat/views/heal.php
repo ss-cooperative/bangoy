@@ -36,7 +36,7 @@ if (isset($_GET['p_id'])&&!$res_patient) {
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-3">
-                <img src="<?=genSrcImg($data->p_id)?>" width="100%" height="200"/>
+                <img src="<?=genSrcImg($data->p_id)?>" width="100%" height="200" class="img-thumbnail"/>
             </div>
 
             <div class="col-sm-9">
