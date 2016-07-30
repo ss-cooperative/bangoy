@@ -40,7 +40,6 @@
                 <td>รหัสยา</td>
                 <td>ชื่อยา</td>
                 <td>จำนวนยาที่เหลือ</td>
-
             </tr>
 
             <?php
@@ -54,9 +53,8 @@
                         <?= $val->m_name; ?>
                     </td>
                     <td>
-                        <?= $val->m_amount ?>
+                        <?= $val->m_amount - $val->orders ?>
                     </td>
-
                 </tr>
             <?php } ?>
         </table>
