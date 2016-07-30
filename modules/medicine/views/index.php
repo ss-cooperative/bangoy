@@ -38,10 +38,10 @@
                         <?= $val->m_id ?>
                     </td>
                     <td>
-                        <a href="index.php?r=medicine/detail&id=<?= $val->m_id ?>"><?= $val->m_id ?></a>
+                        <a href="index.php?r=medicine/detail&m_id=<?= $val->m_id ?>"><?= $val->m_id ?></a>
                     </td>
                     <td>
-                        <a href="index.php?r=medicine/detail&id=<?= $val->m_id ?>"><?= $val->m_name ?></a>
+                        <a href="index.php?r=medicine/detail&m_id=<?= $val->m_id ?>"><?= $val->m_name ?></a>
                     </td>
                     <td><?= $val->m_type ?></td>
                     <td><?= $val->m_amount ?></td>

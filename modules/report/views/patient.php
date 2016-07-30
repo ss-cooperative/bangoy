@@ -49,7 +49,7 @@
             <tr>
                 <td>รหัสผู้ป่วย</td>
                 <td>ชื่อ-สกุล</td>
-                <td>วินิจัยโรค</td>
+                <td>วินิฉัยโรค</td>
                 <td>เมื่อ</td>
 
             </tr>
@@ -57,13 +57,13 @@
             <?php
             foreach ($data as $val) {
                 //if ($val->resultjude) {
-                    ?>
-                    <tr>
-                        <td><?= $val->p_id ?></td>
-                        <td><?= $val->p_name . " " . $val->p_surname; ?></td>
-                        <td><?= $val->resultjude ?></td>
-                        <td><?= DateTimeThai($val->t_date) ?></td>
-                    </tr>
+                ?>
+                <tr>
+                    <td><?= $val->p_id ?></td>
+                    <td><?= $val->p_name . " " . $val->p_surname; ?></td>
+                    <td><?= $val->resultjude ?></td>
+                    <td><?= DateTimeThai($val->t_date) ?></td>
+                </tr>
                 <?php
                 //}
             }

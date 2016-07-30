@@ -11,6 +11,7 @@
 $title = "จ่ายยา";
 $sql = 'SELECT
     paymedicine.*,
+    patient.p_id,
     patient.p_name,
     patient.p_surname,
     treat.t_date
@@ -21,7 +22,7 @@ $sql = 'SELECT
 
 
 $where = [];
-$where[] = (isset($_GET['p_id'])&&$_GET['p_id'])?'treat.p_id='.$_GET['p_id']:'';
+$where[] = (isset($_GET['p_id'])&&$_GET['p_id'])?"patient.p_id='".$_GET['p_id']."'":'';
 $where[] = (isset($_GET['t_no'])&&$_GET['t_no'])?'treat.t_no='.$_GET['t_no']:'';
 $where = array_filter($where);
 $sql.="WHERE ".($where?implode(' AND ', $where):'pay_status = 1 ');
@@ -30,6 +31,7 @@ $sql.='
     paymedicine.t_no
 ';
 //echo $sql;
+//exit();
 $query = $db->sql($sql);
 $page = pagination(25,$query->count());
 $data = $query->all();

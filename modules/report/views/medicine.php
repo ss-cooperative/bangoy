@@ -42,7 +42,7 @@
 
         <h2> <?= $title ?></h2>
         <p>
-<?= DateThai($t_date_start) ?> ถึง <?= DateThai($t_date_end) ?>
+            <?= DateThai($t_date_start) ?> ถึง <?= DateThai($t_date_end) ?>
         </p>
 
         <table class="table table-striped table-bordered table-hover dataTable no-footer">
@@ -53,20 +53,29 @@
             </tr>
 
             <?php
+            //print_r($data);
             foreach ($data as $val) {
+                if($val->m_id):
                 ?>
                 <tr>
                     <td>
-    <?= $val->m_id ?>
+                        <?= $val->m_id ?>
                     </td>
                     <td>
-    <?= $val->m_name; ?>
+                        <?= $val->m_name; ?>
                     </td>
                     <td>
-    <?= $val->m_amount - $val->orders ?>
+                        <div class="hidden-print">
+                            <a href="?r=medicine/detail&m_id=<?=$val->m_id ?>" >
+                                <?= $val->m_amount - $val->orders ?>
+                            </a>
+                        </div>
+                        <div class="visible-print">
+                            <?= $val->m_amount - $val->orders ?>
+                        </div>
                     </td>
                 </tr>
-<?php } ?>
+            <?php endif; } ?>
         </table>
     </div>
 </div>

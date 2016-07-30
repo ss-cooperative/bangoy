@@ -43,6 +43,7 @@
             <tr>
                 <td>#</td>
                 <td>รหัสการรักษา</td>
+                <td>รหัสผู้ป่วย</td>
                 <td>ชื่อ-สกุลผู้ป่วย</td>
                 <td>รักษาเมื่อ</td>
                 <td>สถานะ</td>
@@ -55,6 +56,7 @@
                 <tr>
                     <td><?= ($key+1) ?></td>
                     <td><?= $val->t_no ?></td>
+                    <td><?= $val->p_id ?></td>
                     <td>
                         <a href="index.php?r=paymedicine/confirm&t_no=<?= $val->t_no ?>"><?=$val->p_name.' '.$val->p_surname?> </a>
                     </td>
