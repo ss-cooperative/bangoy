@@ -23,46 +23,41 @@
 
 <div class="panel panel-default">
     <div class="panel-heading hidden-print">
-      &nbsp;
+        &nbsp;
         <div class="pull-right">
-            <a onclick="window.print(); return false;" class="btn btn-default btn-xs"><i class="fa fa-print"></i></a>
+            <a onclick="window.print();
+                    return false;" class="btn btn-default btn-xs"><i class="fa fa-print"></i></a>
         </div>
     </div>
     <div class="panel-body">
-            
-            <h2> <?= $title ?></h2>
-            <p>
-            <?= DateThai($t_date_start) ?> ถึง <?= DateThai($t_date_end) ?>
-            </p>
-       
+
+        <h2> <?= $title ?></h2>
+        <p>
+<?= DateThai($t_date_start) ?> ถึง <?= DateThai($t_date_end) ?>
+        </p>
+
         <table class="table table-striped table-bordered table-hover dataTable no-footer">
             <tr>
                 <td>รหัสผู้ป่วย</td>
                 <td>ชื่อ-สกุล</td>
-                <td>สิทธิการรักษา</td>
+                <td>วินิจัยโรค</td>
                 <td>เมื่อ</td>
 
             </tr>
 
             <?php
             foreach ($data as $val) {
-                ?>
-                <tr>
-                    <td>
-                        <?= $val->p_id ?>
-                    </td>
-                    <td>
-                        <?= $val->p_name . " " . $val->p_surname; ?>
-                    </td>
-                    <td>
-                        <?= $val->resultjude ?>
-                    </td>
-                    <td>
-                        <?= DateTimeThai($val->t_date) ?>
-                    </td>
-
-                </tr>
-            <?php } ?>
+                if ($val->resultjude) {
+                    ?>
+                    <tr>
+                        <td><?= $val->p_id ?></td>
+                        <td><?= $val->p_name . " " . $val->p_surname; ?></td>
+                        <td><?= $val->resultjude ?></td>
+                        <td><?= DateTimeThai($val->t_date) ?></td>
+                    </tr>
+                <?php }
+            }
+            ?>
         </table>
     </div>
 </div>
@@ -74,11 +69,11 @@
 <script type="text/javascript">
                 $(function () {
                     $('#t_date_start').datepicker({
-                        autoclose:true,
+                        autoclose: true,
                         format: 'dd-mm-yyyy'
                     });
                     $('#t_date_end').datepicker({
-                        autoclose:true,
+                        autoclose: true,
                         format: 'dd-mm-yyyy'
                     });
                 });
