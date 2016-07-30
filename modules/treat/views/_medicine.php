@@ -1,3 +1,13 @@
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
+ */-->
+ 
+
 <table id="muti_section9_1" class="table">
     <thead>
         <tr>

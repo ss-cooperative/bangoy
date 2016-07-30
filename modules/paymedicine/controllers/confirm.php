@@ -1,14 +1,13 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
  */
-
-
-
-
 if (isset($_POST['update']) || isset($_POST['finish'])) {
 
     //print_r($_POST);
@@ -22,10 +21,11 @@ if (isset($_POST['update']) || isset($_POST['finish'])) {
         $res_paymedicine = $db->sql('SELECT * FROM paymedicine')->where(["t_no = {$_GET['t_no']}"])->all();
         foreach ($res_paymedicine as $key => $val) {
             $res = $db->update('paymedicine', [
-                'pay_status' => 2
+                'pay_status' => 2,
+                'pay_date' => date("Y-m-d H:i:s")
                     ], ["t_no = '{$_POST['t_no']}'"]);
+            $res->save();
         }
-
 
         $db->redirect('paymedicine/index');
     } else {

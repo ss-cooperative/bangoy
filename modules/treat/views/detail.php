@@ -1,3 +1,12 @@
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
+ */-->
+ 
 
 <label>เลขที่การรักษา</label> <?=$data->t_no?> <br/>
 <label>รหัสผู้ป่วย</label> <?=$data->p_id?> <br/>

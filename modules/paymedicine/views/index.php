@@ -1,3 +1,12 @@
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules.paymedicine
+ */-->
+
 <form class="" action="" method="get">
     <input type="hidden" name="r" value="paymedicine/index">
     <div class="row">

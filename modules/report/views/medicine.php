@@ -1,3 +1,12 @@
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules.report
+ */-->
+
 <div class="row hidden-print">
     <form action="" method="post">
         <div class="col-sm-3">
@@ -25,16 +34,17 @@
     <div class="panel-heading hidden-print">
         &nbsp;
         <div class="pull-right">
-            <a onclick="window.print(); return false;" class="btn btn-default btn-xs"><i class="fa fa-print"></i></a>
+            <a onclick="window.print();
+                    return false;" class="btn btn-default btn-xs"><i class="fa fa-print"></i></a>
         </div>
     </div>
     <div class="panel-body">
-        
-            <h2> <?= $title ?></h2>
-             <p>
-            <?= DateThai($t_date_start) ?> ถึง <?= DateThai($t_date_end) ?>
-             </p>
-       
+
+        <h2> <?= $title ?></h2>
+        <p>
+<?= DateThai($t_date_start) ?> ถึง <?= DateThai($t_date_end) ?>
+        </p>
+
         <table class="table table-striped table-bordered table-hover dataTable no-footer">
             <tr>
                 <td>รหัสยา</td>
@@ -47,16 +57,16 @@
                 ?>
                 <tr>
                     <td>
-                        <?= $val->m_id ?>
+    <?= $val->m_id ?>
                     </td>
                     <td>
-                        <?= $val->m_name; ?>
+    <?= $val->m_name; ?>
                     </td>
                     <td>
-                        <?= $val->m_amount - $val->orders ?>
+    <?= $val->m_amount - $val->orders ?>
                     </td>
                 </tr>
-            <?php } ?>
+<?php } ?>
         </table>
     </div>
 </div>
@@ -68,11 +78,11 @@
 <script type="text/javascript">
                 $(function () {
                     $('#t_date_start').datepicker({
-                        autoclose:true,
+                        autoclose: true,
                         format: 'dd-mm-yyyy'
                     });
                     $('#t_date_end').datepicker({
-                        autoclose:true,
+                        autoclose: true,
                         format: 'dd-mm-yyyy'
                     });
                 });

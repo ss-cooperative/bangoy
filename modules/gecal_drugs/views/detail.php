@@ -1,3 +1,11 @@
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
+ */-->
 
 <label>รหัสตัดสต๊อก</label> <?=$data->gc_id?> <br/>
 <label>รหัสยา-เวชภัณฑ์</label> <?=$data->m_id?> <br/>

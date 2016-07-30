@@ -1,3 +1,13 @@
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules.patient
+ */-->
+
+
 <h4>ข้อมูลการรักษา</h4>
 <p>
 <a href="index.php?r=treat/add&p_id=<?= $data->p_id ?>" class="btn btn-default"><i class="fa fa-edit"></i> แจ้งอาการเบื้ยงต้น</a>

@@ -22,7 +22,7 @@
                 <td>รหัสผู้ป่วย</td>
                 <td>ชื่อ-สกุล</td>
                 <td>สิทธิการรักษา</td>
-                <td>Action</td>
+                <td>ตรวจรักษา</td>
             </tr>
 
             <?php
@@ -39,7 +39,7 @@
                         <?= findPrivilege($val->pv_id) ?>
                     </td>
                     <td>
-                        <a href="index.php?r=treat/assign&p_id=<?= $val->p_id ?>" class="btn btn-default"><i class='fa fa-edit'></i> กรอกอาการเบื้องต้น</a>                        
+                        <a href="index.php?r=treat/assign&p_id=<?= $val->p_id ?>" class="btn btn-default"><i class='fa fa-edit'></i> ตรวจรักษา</a>                        
                     </td>
                 </tr>
             <?php } ?>

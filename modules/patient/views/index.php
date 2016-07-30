@@ -51,8 +51,8 @@
                     <td>
                         <?= $val->p_id ?>
                     </td>
-                    <td>
-                        <a href="index.php?r=patient/detail&p_id=<?= $val->p_id ?>"><?= $val->p_name . " " . $val->p_surname; ?></a>
+                    <td >
+                        <img src="<?=genSrcImg($val->p_id)?>" width="40" height="45" class="img-responsive img-thumbnail"/>&nbsp;<a href="index.php?r=patient/detail&p_id=<?= $val->p_id ?>"><?= $val->p_name . " " . $val->p_surname; ?></a>
                     </td>
                     <td>
                         <?= findPrivilege($val->pv_id) ?>

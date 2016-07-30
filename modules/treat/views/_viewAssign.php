@@ -1,3 +1,12 @@
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
+ */-->
+ 
 <form class="" action="" method="POST">
 <input type="hidden" name="r" value="treat/heal">
 <input type="hidden" name="p_id"  value="<?=(isset($_GET['p_id'])?$_GET['p_id']:'')?>">

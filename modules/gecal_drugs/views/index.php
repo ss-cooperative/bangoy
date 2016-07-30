@@ -1,4 +1,11 @@
-
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
+ */-->
 <a href="index.php?r=gecal_drugs/create" class="btn btn-success"> เพิ่มข้อมูล</a>
 
 

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
+ */
 
 $qno = $db->sql("SELECT * FROM `qqq` ")->where(['DATE(qqq.qdate) = CURDATE()'])->all();
 

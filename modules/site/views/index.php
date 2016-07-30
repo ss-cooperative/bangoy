@@ -23,7 +23,7 @@ $data = $db->select('patient')->all();
 
 
     <div class="col-lg-2">
-        <a href="index.php?r=treat/heal" class="btn btn-danger btn-block" >
+        <a href="index.php?r=treat/index" class="btn btn-danger btn-block" >
             <i class="fa fa-heart fa-2x"></i>
             <h4>ตรวจรักษา/นัดหมาย</h4>                     
         </a>

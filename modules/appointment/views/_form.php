@@ -1,3 +1,12 @@
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
+ */-->
+
 <form class="" action="" method="post">
 รหัสผู้ป่วย
 <input type="text" name="p_id" value="<?=$data->p_id?>"><br/>

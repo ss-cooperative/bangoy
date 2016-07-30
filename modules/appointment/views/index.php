@@ -1,4 +1,12 @@
-
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
+ */-->
+ 
 <a href="index.php?r=appointment/create" class="btn btn-success"> จอง</a>
 
 

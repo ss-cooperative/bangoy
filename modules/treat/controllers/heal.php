@@ -1,11 +1,12 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
  */
-
 
 
 
@@ -52,8 +53,8 @@ if (isset($_POST['update']) || isset($_POST['finish'])) {
             ]);
             $res_insert->save();
         }
-
-        if (isset($_POST['finish'])) {
+        updateQqq($_POST['p_id'], 3);
+        if (isset($_POST['finish'])) {            
             $db->redirect('treat/heal');
         } else {
             $db->redirect('treat/heal', ['p_id' => $_POST['p_id']]);

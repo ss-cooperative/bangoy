@@ -1,11 +1,18 @@
 <?php
+/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
+ */
 
 if (isset($_POST['ok'])) {
     //print_r($_FILES);
     uploadFile($_FILES['picture'],'patient',$_GET['p_id']);
     //exit();
-    
-    
+       
     
     $res = $db->update('patient', [
         'p_name' => $_POST['p_name'],

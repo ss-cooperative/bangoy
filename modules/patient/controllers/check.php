@@ -1,10 +1,14 @@
 <?php
-$title = 'ตรวจสอบประวัติ';
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
  */
+
+$title = 'ตรวจสอบประวัติ';
 
 $res_qqq = $db->sql("SELECT * FROM `qqq` LEFT JOIN patient ON patient.p_id = qqq.p_id")->where([
     'qqq.qstatus=1',

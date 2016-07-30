@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package lib.function
+ */
 function convDateToDb($strDate) {
     $year = '0000';
     $month = '00';
@@ -143,9 +151,9 @@ function genSrcImg($fileName, $sub = 'patient/') {
     }
 }
 
-function uploadFile($file, $subPath = '',$newNamFile='') {
-    $target_dir = _pathUpload . ($subPath?$subPath.'/':'');
-    $target_file = $target_dir . basename($newNamFile.'.jpg');
+function uploadFile($file, $subPath = '', $newNamFile = '') {
+    $target_dir = _pathUpload . ($subPath ? $subPath . '/' : '');
+    $target_file = $target_dir . basename($newNamFile . '.jpg');
     $uploadOk = 1;
     //$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
@@ -184,7 +192,27 @@ function uploadFile($file, $subPath = '',$newNamFile='') {
             return $file["tmp_name"];
         } else {
             echo "Sorry, there was an error uploading your file.";
-           // exit();
+            // exit();
         }
+    }
+}
+
+/**
+ * ปรับสถานของ qqq
+ * @global type $db
+ * @param type $p_id
+ * @param type $status
+ */
+function updateQqq($p_id, $status) {
+    global $db;
+    $res = $db->update('qqq', [
+        'qstatus' => $status,
+            ], [
+        "p_id = '{$p_id}'",
+        "DATE(qqq.qdate) = CURDATE()"
+    ]);
+    if(!$res->save()){
+        echo $res->sql;
+        exit();
     }
 }

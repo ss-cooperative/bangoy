@@ -1,3 +1,12 @@
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules.report
+ */-->
+
 <div class="row hidden-print">
     <form action="" method="post">
         <div class="col-sm-3">
@@ -33,7 +42,7 @@
 
         <h2> <?= $title ?></h2>
         <p>
-<?= DateThai($t_date_start) ?> ถึง <?= DateThai($t_date_end) ?>
+            <?= DateThai($t_date_start) ?> ถึง <?= DateThai($t_date_end) ?>
         </p>
 
         <table class="table table-striped table-bordered table-hover dataTable no-footer">
@@ -47,7 +56,7 @@
 
             <?php
             foreach ($data as $val) {
-                if ($val->resultjude) {
+                //if ($val->resultjude) {
                     ?>
                     <tr>
                         <td><?= $val->p_id ?></td>
@@ -55,7 +64,8 @@
                         <td><?= $val->resultjude ?></td>
                         <td><?= DateTimeThai($val->t_date) ?></td>
                     </tr>
-                <?php }
+                <?php
+                //}
             }
             ?>
         </table>

@@ -1,3 +1,12 @@
+<!--/**
+ * Mini MVC Bangory
+ * 
+ * @author Ahamad Jehduaramea <ahamad.jedu@gmail.com>
+ * @copyright 2016 Madone
+ * @link https://github.com/firdows/bangoy
+ * @package modules
+ */-->
+ 
 <link rel="stylesheet" type="text/css" href="js/datetimepicker-master/jquery.datetimepicker.css">
 <br />
 <div class="row">
@@ -8,7 +17,7 @@
             <input class="form-control" type="text" name="app_date" value="<?= $res_app->app_date . ' ' . $res_app->app_time ?>" id="datetimepicker_format" >
         </div>
     </div>  
-    
+
     <div class="col-sm-6">
         <div class="form-group">
             <label>เหตุผล</label>
