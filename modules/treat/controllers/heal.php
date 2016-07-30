@@ -12,31 +12,35 @@
 if (isset($_POST['update']) || isset($_POST['finish'])) {
 
     print_r($_POST);
-    //exit();
+    
 
     $res = $db->update('treat', [
         'resultjude' => $_POST['resultjude'],
             ], ["t_no = '{$_POST['t_no']}'"]);
-    echo $db->sql;
+    //echo $db->sql;
+    
     if ($res->save()) {
         $db->delete('paymedicine', ["t_no = " . $_POST['t_no']]);
         foreach ($_POST['m_id'] as $key => $val) {
             if ($_POST['m_id'][$key]) {
-                $res = $db->insert('paymedicine', [
+                $res_insert = $db->insert('paymedicine', [
                     't_no' => $_POST['t_no'],
                     'm_id' => $_POST['m_id'][$key],
                     'pay_amount' => $_POST['pay_amount'][$key],
                     'pay_status' => 1,
                     'user_id' => $_SESSION['user_id'],
                 ]);
+                echo $db->sql."<br/>";
+                $res_insert->save();
             }
         }
+        //exit();
         //app_date
         $db->delete('appointment', ["t_no = " . $_POST['t_no']]);
         if ($_POST['app_date']) {
 
             $app_date = explode(' ', $_POST['app_date']);
-            $res = $db->insert('appointment', [
+            $res_insert = $db->insert('appointment', [
                 'app_date' => $app_date[0],
                 'app_time' => $app_date[1],
                 'app_reason' => $_POST['app_reason'],
@@ -46,6 +50,7 @@ if (isset($_POST['update']) || isset($_POST['finish'])) {
                 'user_id' => $_SESSION['user_id'],
                 'p_id' => $_POST['p_id']
             ]);
+            $res_insert->save();
         }
 
         if (isset($_POST['finish'])) {

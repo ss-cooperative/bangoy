@@ -20,7 +20,7 @@ if (isset($_POST['save'])) {
         't_hight' => $_POST['t_hight'],
         't_wieght' => $_POST['t_wieght'],
         'p_id' => $_POST['p_id'],
-        't_date' => date("Y-d-m H:i:s"),
+        't_date' => date("Y-m-d H:i:s"),
         'user_id' => $_SESSION['user_id'],
         'resultjude' => $_POST['resultjude'],
     ]);
