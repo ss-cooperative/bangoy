@@ -184,6 +184,13 @@ class DB extends PDO {
         return $this;
     }
     
+    public function groupBy($groupBy) {
+        if ($groupBy)
+            $this->sql .= " GROUP BY " . $groupBy;
+        //$query->debugDumpParams();        
+        return $this;
+    }
+    
     public function lastInsert(){
         return $this->lastInsertId();
     }
