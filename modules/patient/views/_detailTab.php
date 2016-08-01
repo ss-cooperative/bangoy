@@ -25,6 +25,7 @@
                                 <div class="tab-pane fade" id="profile">
                                     <h4>ข้อมูลการจ่ายยา</h4>
                                     <p>ข้อมูลการจ่ายยา</p>
+                                    <?php include '_medicine.php';?>
                                 </div>
                                
                             </div>

@@ -14,5 +14,9 @@ INNER JOIN medicine ON medicine.m_id = paymedicine.m_id ")->where([
             "DATE(paymedicine.pay_date) >= '" . convDateToDb($_POST['t_date_start']) . "'",
             "DATE(paymedicine.pay_date) <= '" . convDateToDb($_POST['t_date_end']) . "'",
             "paymedicine.pay_status = 2"
-        ])->all();
+        ])
+        ->groupBy('paymedicine.m_id')
+        ->all();
+//echo $db->sql;
+//exit();
 

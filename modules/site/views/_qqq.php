@@ -26,8 +26,11 @@
                                             <?= $val->qno ?>
                                         </td>
                                         <td>
+                                            
                                             <?= $val->qname . " " . $val->qsurname ?>
+                                            <a href="index.php?r=patient/detail&p_id=<?=$val->p_id?>">
                                             <?= $val->p_name . " " . $val->p_surname ?>
+                                            </a>
                                         </td>
                                         <td>
                                             <?= DateTimeThai($val->qdate) ?>

@@ -28,6 +28,7 @@
 
                                 <tr>
                                     <td>คิวที่</td>
+                                    <td>รหัสผู้ป่วย</td>
                                     <td>ชื่อ-สกุล</td>
                                     <td>อาการเบื้องต้น</td>
                                     <td>ตรวจรักษา</td>
@@ -37,9 +38,8 @@
                                 foreach ($res_qqq as $val) {
                                     ?>
                                     <tr>
-                                        <td>
-                                            <?= $val->qno ?>
-                                        </td>
+                                        <td><?= $val->qno ?></td>
+                                        <td><?= $val->p_id ?></td>
                                         <td>
                                             <?= $val->qname . " " . $val->qsurname ?>
                                             <?= $val->p_name . " " . $val->p_surname ?>

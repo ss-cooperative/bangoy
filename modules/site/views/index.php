@@ -51,7 +51,7 @@ $data = $db->select('patient')->all();
 </div>
 
 
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id="modalSearch" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -118,6 +118,7 @@ $data = $db->select('patient')->all();
                     },
             function (data) {
                 $('.modal-body .s-data').html(data);
+                
             });
         });
     });
@@ -130,7 +131,13 @@ $data = $db->select('patient')->all();
                     p_id: id,
                     qname: name,
                     qsurname: surname
+                },function(data){
+                    //$('#modalSearch').modal('hide');
+                    //alert(data);
+                    alert('จองคิวแล้ว');
+                    location.reload();
                 }
         );
+        return false;
     }
 </script>

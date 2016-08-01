@@ -20,6 +20,7 @@
                 <td>ความดัน</td>
                 <td>อุณหภูมิ</td>
                 <td>ชีพจร</td>
+                <td>การนัดหมายครั้งต่อไป</td>
                 <td width="50"></td>
             </tr>
 
@@ -42,6 +43,10 @@
                     </td>
                     <td>
                         <?= $val->pulse ?>
+                    </td>
+                    <td>
+                        <?= DateTimeThai($val->app_date . " " . $val->app_time) ?>
+                       
                     </td>
                     <td>
                         <a href="index.php?r=treat/detail&t_no=<?= $val->t_no ?>" class="btn btn-default"><i class='fa fa-edit'></i> รายละเอียด</a>

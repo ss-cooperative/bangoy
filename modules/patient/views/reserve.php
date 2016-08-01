@@ -30,7 +30,7 @@
                     <?= findPrivilege($val->pv_id) ?>
                 </td>
                 <td>
-                    <a href="javascript:reserve('<?= $val->p_id ?>');" class="btn btn-default"><i class='fa fa-edit'></i> จองคิว</a>
+                    <a href="javascript:reserve('<?= $val->p_id ?>');" class="btn btn-default" ><i class='fa fa-edit'></i> จองคิว</a>
                 </td>
             </tr>
         <?php

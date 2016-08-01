@@ -16,6 +16,7 @@
                                     <th>ชื่อ-สกุล</th>
                                     <th>นัดเมื่อ</th>
                                     <th>สาเหตุ</th>
+                                    <th>เข้าคิว</th>
                                 </tr>
 
                                 <?php
@@ -28,11 +29,14 @@
                                         <td>
                                             <?= $val->p_name . " " . $val->p_surname ?>
                                         </td>
-                                        <td>
+                                        <td>                                            
                                             <?= DateTimeThai($val->app_date . " " . $val->app_time) ?>
                                         </td>
                                         <td>
                                             <?= $val->app_reason ?>
+                                        </td>
+                                         <td>
+                                             <a href="#" class="btn btn-default" onclick="javascipt:reserve('<?=$val->p_id?>')">จองคิว</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

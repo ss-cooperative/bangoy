@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Mini MVC Bangory
  * 
@@ -7,7 +8,6 @@
  * @link https://github.com/firdows/bangoy
  * @package modules
  */
-
 $qno = $db->sql("SELECT * FROM `qqq` ")->where(['DATE(qqq.qdate) = CURDATE()'])->all();
 
 $qno = count($qno);
@@ -20,11 +20,21 @@ $res = $db->insert('qqq', [
     'qstatus' => 1,
     'qdate' => date("Y-m-d H:i:s"),
     'p_id' => $_GET['p_id'],
-    'qno'=>($qno+1)
+    'qno' => ($qno + 1)
         ]);
-echo $db->sql;
+//echo $db->sql;
 if ($res->save()) {
-    $db->redirect('qqq/index');
+
+    $res_update = $db->update('appointment', [
+        'app_status' => 0,
+            ], ["p_id = '{$_GET['p_id']}'"]);
+            echo $db->sql;
+    if($res_update->save()){
+        echo 'ok';
+    }
+
+
+    //$db->redirect('qqq/index');
 } else {
     echo $db->error();
 }

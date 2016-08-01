@@ -13,7 +13,7 @@ $title = "โรงพยาบาลส่งเสริมสุภาพต�
 $query = $db->select('booking')->all();
 
 
-$res_appointment = $db->sql("SELECT * FROM `appointment` INNER JOIN patient ON patient.p_id = appointment.p_id ")->all();
+$res_appointment = $db->sql("SELECT * FROM `appointment` INNER JOIN patient ON patient.p_id = appointment.p_id WHERE appointment.app_status=1")->all();
 
 $res_qqq = $db->sql("SELECT * FROM `qqq` LEFT JOIN patient ON patient.p_id = qqq.p_id")->where([
     'qqq.qstatus=1',

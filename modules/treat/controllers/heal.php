@@ -12,7 +12,7 @@
 
 if (isset($_POST['update']) || isset($_POST['finish'])) {
 
-    print_r($_POST);
+    //print_r($_POST);
     
 
     $res = $db->update('treat', [
@@ -31,14 +31,14 @@ if (isset($_POST['update']) || isset($_POST['finish'])) {
                     'pay_status' => 1,
                     'user_id' => $_SESSION['user_id'],
                 ]);
-                echo $db->sql."<br/>";
+                //echo $db->sql."<br/>";
                 $res_insert->save();
             }
         }
         //exit();
         //app_date
-        $db->delete('appointment', ["t_no = " . $_POST['t_no']]);
-        if ($_POST['app_date']) {
+        $db->delete('appointment', ["p_id = '" . $_POST['p_id']."'"]);
+        if (isset($_POST['app_date'])) {
 
             $app_date = explode(' ', $_POST['app_date']);
             $res_insert = $db->insert('appointment', [
@@ -48,14 +48,16 @@ if (isset($_POST['update']) || isset($_POST['finish'])) {
                 'app_status' => 1,
                 'user_id' => $_SESSION['user_id'],
                 "t_no" => $_POST['t_no'],
-                'user_id' => $_SESSION['user_id'],
                 'p_id' => $_POST['p_id']
             ]);
+            echo $db->sql;
+            echo $db->error();
+            //exit();
             $res_insert->save();
         }
         updateQqq($_POST['p_id'], 3);
         if (isset($_POST['finish'])) {            
-            $db->redirect('treat/heal');
+            $db->redirect('treat/index');
         } else {
             $db->redirect('treat/heal', ['p_id' => $_POST['p_id']]);
         }

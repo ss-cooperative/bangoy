@@ -7,32 +7,29 @@
  * @package modules
  */-->
 
-<table class="table">
+<table class="table table-striped table-bordered table-hover dataTable no-footer">
   <tr>
-    <td>
-      ชื่อยา
-    </td>
-    <td>
-      Name
-    </td>
-    <td>
-      Action
-    </td>
+    <td>#</td>
+    <td>ชื่อยา</td>
+    <td>จำนวน</td>    
+    <td>จ่ายยาเมื่อ</td>    
   </tr>
 
   <?php
-  foreach($data as $val){
+  foreach($data_paymedicine as $key=> $val){
 ?>
 <tr>
   <td>
-    <?=$val->m_id?>
+    <?=$key+1?>
   </td>
   <td>
-    <a href="index.php?r=medicine/detail&id=<?=$val->m_id?>"></a>
+    <a href="index.php?r=medicine/detail&id=<?=$val->m_id?>"><?=$val->m_name?></a>
   </td>
   <td>
-    <a href="index.php?r=medicine/update&id=<?=$val->m_id?>">Upadate</a>
-    <a href="index.php?r=medicine/delete&id=<?=$val->m_id?>" onclick="return confirm('แน่ใจที่จะลบ ?')">ลบ</a>
+    <?=$val->pay_amount?>
+  </td>
+  <td>
+    <?=  DateThai($val->pay_date)?>
   </td>
 </tr>
   <?php } ?>
