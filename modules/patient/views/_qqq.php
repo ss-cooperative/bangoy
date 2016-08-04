@@ -21,7 +21,7 @@
                             <table class="table table-bordered table-hover table-striped ">
 
                                 <tr>
-                                    <td>คิวที่</td>
+                                    <td>ลำดับคิว</td>
                                     <td>ชื่อ-สกุล</td>
                                     <td>จองเมื่อ</td>
                                     <td>ตรวจสอบ</td>
