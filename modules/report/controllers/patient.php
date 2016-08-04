@@ -1,8 +1,8 @@
 <?php
 
 $title = 'รายงานผู้ป่วย';
-$t_date_start = date("d-m-Y");
-$t_date_end = date("d-m-Y");
+$t_date_start = date("Y-m-d");
+$t_date_end = date("Y-m-d");
 if (isset($_POST['search'])) {
 
     $t_date_start = convDateThToDb($_POST['t_date_start']);

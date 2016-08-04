@@ -12,7 +12,8 @@
 
 if (isset($_POST['update']) || isset($_POST['finish'])) {
 
-    //print_r($_POST);
+//    print_r($_POST);
+//    exit();
     
 
     $res = $db->update('treat', [
@@ -40,10 +41,10 @@ if (isset($_POST['update']) || isset($_POST['finish'])) {
         $db->delete('appointment', ["p_id = '" . $_POST['p_id']."'"]);
         if (isset($_POST['app_date'])) {
 
-            $app_date = explode(' ', $_POST['app_date']);
+            //$app_date = explode(' ', $_POST['app_date']);
             $res_insert = $db->insert('appointment', [
-                'app_date' => $app_date[0],
-                'app_time' => $app_date[1],
+                'app_date' => convDateThToDb($_POST['app_date']),
+                'app_time' => $_POST['app_time'],
                 'app_reason' => $_POST['app_reason'],
                 'app_status' => 1,
                 'user_id' => $_SESSION['user_id'],
