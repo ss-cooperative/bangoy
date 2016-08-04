@@ -12,13 +12,13 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label>วันที่</label>
-                <input class="form-control" type="text" name="t_date_start"  id="t_date_start"  value="<?= $t_date_start ?>">
+                <input class="form-control" type="text" name="t_date_start"  id="t_date_start"  value="<?= convDateThToWidget($t_date_start) ?>">
             </div>
         </div>  
         <div class="col-sm-3">
             <div class="form-group">
                 <label>ถึงวันที่</label>
-                <input class="form-control" type="text" name="t_date_end"  id="t_date_end" value="<?= $t_date_end ?>">
+                <input class="form-control" type="text" name="t_date_end"  id="t_date_end" value="<?= convDateThToWidget($t_date_end) ?>">
             </div>
         </div>  
 
@@ -42,7 +42,7 @@
 
         <h2> <?= $title ?></h2>
         <p>
-            <?= DateThai($t_date_start) ?> ถึง <?= DateThai($t_date_end) ?>
+            <?= DateThaiFull($t_date_start) ?> ถึง <?= DateThaiFull($t_date_end) ?>
         </p>
 
         <table class="table table-striped table-bordered table-hover dataTable no-footer">
@@ -75,16 +75,22 @@
 
 <link rel="stylesheet" type="text/css" href="js/bootstrap-datepicker/css/bootstrap-datepicker.css">
 
-<script src="js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script src="js/bootstrap-datepicker-thai-thai/js/bootstrap-datepicker.js"></script>
+<script src="js/bootstrap-datepicker-thai-thai/js/bootstrap-datepicker-thai.js"></script>
+<script src="js/bootstrap-datepicker-thai-thai/js/locales/bootstrap-datepicker.th.js"></script>
+
 <script type="text/javascript">
                 $(function () {
                     $('#t_date_start').datepicker({
                         autoclose: true,
-                        format: 'dd-mm-yyyy'
+                        format: 'dd-mm-yyyy',
+                        language: 'th-th'
                     });
                     $('#t_date_end').datepicker({
                         autoclose: true,
-                        format: 'dd-mm-yyyy'
+                        format: 'dd-mm-yyyy',
+                        language: 'th-th'
                     });
                 });
 </script>

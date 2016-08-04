@@ -6,8 +6,7 @@
  * @link https://github.com/firdows/bangoy
  * @package modules
  */-->
- 
-<link rel="stylesheet" type="text/css" href="js/datetimepicker-master/jquery.datetimepicker.css">
+
 <br />
 <div class="row">
 
@@ -28,12 +27,18 @@
 </div>
 
 
-<script src="js/datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
+<link rel="stylesheet" type="text/css" href="js/bootstrap-datetimepicker-master/sample in bootstrap v3/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="js/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+
+<script type="text/javascript" src="js/bootstrap-datetimepicker-master/sample in bootstrap v3/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js" ></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.th.js" ></script>
 <script type="text/javascript">
     $(function () {
-
         $('#datetimepicker_format').datetimepicker({
-            format: 'Y-m-d H:i:s'
+            autoclose: true,
+            //format: 'dd-mm-yyyy',
+            language: 'th-th'
         });
 
     });
