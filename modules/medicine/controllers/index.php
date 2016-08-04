@@ -8,7 +8,7 @@
  * @package modules
  */
 
-$title = 'ข้อมูลผู้ป่วย';
+$title = 'ข้อมูลยา-เวชภัณฑ์';
 
 $query = $db->select('medicine');
 
