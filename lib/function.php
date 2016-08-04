@@ -8,6 +8,12 @@
  * @link https://github.com/firdows/bangoy
  * @package lib.function
  */
+
+/**
+ * จาก 01-10-2016 to 2016-10-01
+ * @param type $strDate
+ * @return type
+ */
 function convDateToDb($strDate) {
     $year = '0000';
     $month = '00';
@@ -16,6 +22,11 @@ function convDateToDb($strDate) {
     return @implode('-', [$year, $month, $day]);
 }
 
+/**
+ * จาก 2016-10-01 to 01-10-2016
+ * @param type $strDate
+ * @return type
+ */
 function convDateToDisplay($strDate) {
     $year = '0000';
     $month = '00';
@@ -25,7 +36,33 @@ function convDateToDisplay($strDate) {
 }
 
 /**
- * 
+ * แปลงไปใช้กับ DB 01-10-2559 to 2016-10-10
+ * @param type $strDate
+ * @return type
+ */
+function convDateThToDb($strDate) {
+    $year = '0000';
+    $month = '00';
+    $day = '00';
+    list($day, $month, $year) = explode('-', $strDate);
+    return @implode('-', [($year-543), $month, $day]);
+}
+
+/**
+ * จาก 2016-10-10 to 01-10-2559
+ * @param type $strDate
+ * @return type
+ */
+function convDateThToWidget($strDate) {
+    $year = '0000';
+    $month = '00';
+    $day = '00';
+    list($year, $month, $day) = explode('-', $strDate);
+    return @implode('-', [$day, $month, ($year+543)]);
+}
+
+/**
+ * จาก 2016-10-01 to 01 ต.ค. 2559
  * @param type $strDate
  * @return type
  */
@@ -43,7 +80,24 @@ function DateThai($strDate) {
 }
 
 /**
- * 
+ * จาก 2016-10-01 to 01 ตุลาคม 2559
+ * @param type $strDate
+ * @return type
+ */
+function DateThaiFull($strDate) {
+    $strYear = date("Y", strtotime($strDate)) + 543;
+    $strMonth = date("n", strtotime($strDate));
+    $strDay = date("j", strtotime($strDate));
+    $strHour = date("H", strtotime($strDate));
+    $strMinute = date("i", strtotime($strDate));
+    $strSeconds = date("s", strtotime($strDate));
+    $strMonthCut = Array("", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มินุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤษจิกายน", "ธันวาคม");
+    $strMonthThai = $strMonthCut[$strMonth];
+    return $strDay . " " . $strMonthThai . " " . $strYear;
+}
+
+/**
+ * จาก 2016-10-01 10:10:00 to 01 ต.ค. 2559 10:10
  * @param type $strDate
  * @return type
  */
@@ -56,6 +110,24 @@ function DateTimeThai($strDate) {
     $strMinute = date("i", strtotime($strDate));
     $strSeconds = date("s", strtotime($strDate));
     $strMonthCut = Array("", "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
+    $strMonthThai = $strMonthCut[$strMonth];
+    return $strDay . " " . $strMonthThai . " " . $strYear . " " . $strHour . ":" . $strMinute . " น. ";
+}
+
+/**
+ * จาก 2016-10-01 10:10:00 to 01 ตุลาคม 2559 10:10
+ * @param type $strDate
+ * @return type
+ */
+function DateTimeThaiFull($strDate) {
+    $strYear = date("Y", strtotime($strDate)) + 543;
+    //$strYear = substr($strYear, 2);
+    $strMonth = date("n", strtotime($strDate));
+    $strDay = date("j", strtotime($strDate));
+    $strHour = date("H", strtotime($strDate));
+    $strMinute = date("i", strtotime($strDate));
+    $strSeconds = date("s", strtotime($strDate));
+    $strMonthCut = Array("", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มินุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤษจิกายน", "ธันวาคม");
     $strMonthThai = $strMonthCut[$strMonth];
     return $strDay . " " . $strMonthThai . " " . $strYear . " " . $strHour . ":" . $strMinute . " น. ";
 }
