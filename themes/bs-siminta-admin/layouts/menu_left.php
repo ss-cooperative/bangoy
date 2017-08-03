@@ -1,12 +1,21 @@
 <?php
-$user = $db->select('user')->where(["id={$_SESSION['user_id']}"])->one();
+    $user = $db->select('user')->where(["id={$_SESSION['user_id']}"])->one();
 
-$arrMenu = [];
-$arrMenu[]=['title'=>'<i class="fa fa-home"></i> หน้าหลัก','rout'=>'index.php'];
-$arrMenu[]=['title'=>'<i class="fa fa-user"></i> ข้อมูลผู้ป่วย','rout'=>'index.php?r=patient'];
-//$arrMenu[]=['title'=>'<i class="fa fa-tasks"></i> การรักษาพยาบาล','rout'=>'index.php?r=treat'];
-$arrMenu[]=['title'=>'<i class="fa fa-flask"></i> ยา-เวชภัณฑ์','rout'=>'index.php?r=medicine'];
-$arrMenu[]=['title'=>'<i class="fa fa-files-o"></i> รายงาน','rout'=>'index.php?r=report'];
+    $arrMenu = [];
+    $arrMenu[]=['title'=>'<i class="fa fa-home"></i> หน้าหลัก','rout'=>''];
+    $arrMenu[]=['title'=>'<i class="fa fa-user"></i> ข้อมูลสมาชิก',
+        'rout'=>'member',
+        //'arg'=>['test'=>'1']
+        ];
+    $arrMenu[]=[
+            'title' => '<i class="fa fa-user"></i> เงินกู้','rout'=>'stock',
+//            'items' => [
+//                ['title'=>'<i class="fa fa-user"></i> เงินกู้','rout'=>'patient']
+//            ]
+        ];
+    //$arrMenu[]=['title'=>'<i class="fa fa-tasks"></i> การรักษาพยาบาล','rout'=>'index.php?r=treat'];
+    $arrMenu[]=['title'=>'<i class="fa fa-flask"></i> ยา-เวชภัณฑ์','rout'=>'medicine'];
+    $arrMenu[]=['title'=>'<i class="fa fa-files-o"></i> รายงาน','rout'=>'report'];
 ?>
 <!-- side-menu -->
 <ul class="nav" id="side-menu">
@@ -19,33 +28,54 @@ $arrMenu[]=['title'=>'<i class="fa fa-files-o"></i> รายงาน','rout'=>
             <div class="user-info">
                 <div><?=$user->displayname?></div>
                 <div class="user-text-online">
-                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;กำลังใช้งาน
+                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                 </div>
             </div>
         </div>
         <!--end user image section-->
     </li>
-    <li class="sidebar-search">
-        <!-- search section-->
-        <div class="input-group custom-search-form">
-            <input type="text" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <i class="fa fa-search"></i>
-                </button>
-            </span>
-        </div>
-        <!--end search section-->
-    </li>
-
-
     <?php
-    foreach ($arrMenu as $menu):?>
-    <li class="<?=$menu['selected']?>">
-        <a href="<?=$menu['rout']?>"><?=$menu['title']?></a>
-    </li>
-    <?php    endforeach;?>
-
-
+    foreach ($arrMenu as $menu):
+        $router = isset($_GET['r'])?$_GET['r']:'';
+        $arg = isset($menu['arg'])?$menu['arg']:[];
+        ?>
+        <li class="<?=$router==$menu['rout']?'selected':'';?>">
+            <a href="<?=rout($menu['rout'],$arg)?>">
+                <?=$menu['title']?>
+                <?=($menu['items'])?'<span class="fa arrow"></span>':''?>
+            </a>
+            
+            <?php if($menu['items']){?>
+            <ul class="nav nav-second-level collapse in">
+            <?php
+                foreach ($menu['items'] as $s_menu):
+                    $arg = isset($s_menu['arg'])?$s_menu['arg']:[];
+                    ?>    
+                <li>
+                    <a href="<?=rout($s_menu['rout'],$arg)?>">
+                    <?=$s_menu['title']?>
+                </a>
+                </li>
+                <?php endforeach;?>
+            </ul>           
+            <?php } ?>             
+        </li>
+    <?php    
+    endforeach;
+    ?>
 </ul>
+<!--
+<ul class="nav" id="side-menu">
+    <?php
+    foreach ($arrMenu as $menu):
+        $router = isset($_GET['r'])?$_GET['r']:'';
+        $arg = isset($menu['arg'])?$menu['arg']:[];
+        ?>
+        <li class="<?=$router==$menu['rout']?'selected':'';?>">
+            <a href="<?=rout($menu['rout'],$arg)?>"><?=$menu['title']?></a>
+        </li>
+    <?php    
+    endforeach;
+    ?>
+</ul>-->
 <!-- end side-menu -->

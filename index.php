@@ -14,6 +14,7 @@
  */
 include_once("config.php");
 include_once("lib/DB.php");
+include_once("lib/conn.php");
 include_once("lib/variable.php");
 include_once("lib/function.php");
 

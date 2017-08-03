@@ -32,9 +32,29 @@ body {
 #wrapper {
     width: 100%;
     margin-top: 55px!important; 
-    background-color:#2891de; 
+/*    background-color:#2891de; */
+    background-color:#e0f3f9; 
 }
 
+#side-menu {
+    background-color: #e0f3f9;
+}
+
+#side-menu a {
+    color: #555;
+    border-top: 1px dotted #b9e8f9 !important;
+    /* border-bottom: 1px solid #1d56b3 !important; */
+    height: 55px;
+}
+
+.selected {
+    background-color: rgb(192, 229, 241);
+}
+
+.user-text-online {
+    font-size: 18px;
+    color: #555;
+}
 
 #page-wrapper {
     padding: 0 15px;

@@ -7,14 +7,21 @@ $data = $db->select('patient')->all();
 
 <div class="row">
     <!--quick info section -->
-    <div class="col-lg-2">
+<!--    <div class="col-lg-2">
         <a class="btn btn-success btn-block" data-toggle="modal" data-target=".bs-example-modal-sm">
             <i class="fa fa-outdent fa-2x"></i>
-            <h4>จองคิว</h4>                     
+            <h4>สมาชิกสหกรณ์</h4>                     
         </a>
-
-    </div>
+    </div>-->
+    
     <div class="col-lg-2">
+        <a href="<?=rout('member')?>" class="btn btn-warning btn-block" >
+            <i class="fa fa-user-md fa-2x"></i>
+            <h4>สมาชิกสหกรณ์</h4>                     
+        </a>
+    </div>
+    
+<!--     <div class="col-lg-2">
         <a href="index.php?r=patient/check" class="btn btn-warning btn-block" >
             <i class="fa fa-user-md fa-2x"></i>
             <h4>ตรวจสอบประวัติ</h4>                     
@@ -34,16 +41,18 @@ $data = $db->select('patient')->all();
             <i class="fa fa-medkit fa-2x"></i>
             <h4>จ่ายยา</h4>                     
         </a>
-    </div>
+    </div>-->
     <!--end quick info section -->
 </div>
 
 <hr/>
-<div class="row">
+
+<!--<div class="row">
     <div class="col-sm-6">
        <?php include '_appoint.php';?>
     </div>
-
+</div>-->
+<!--
     <div class="col-sm-6">
        <?php include '_qqq.php';?>
     </div>
@@ -140,4 +149,4 @@ $data = $db->select('patient')->all();
         );
         return false;
     }
-</script>
+</script>-->

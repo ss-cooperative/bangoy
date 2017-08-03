@@ -63,8 +63,9 @@ class DB extends PDO {
         return $this;
     }
 
-    public function orWhere($arr = []) {
-        $where = (strpos('where', $this->sql)) ? ' WHERE ' : ' OR ';
+    public function orWhere($arr = []) {     
+        //print_r($arr);
+        $where = (strpos($this->sql,'WHERE')) ? ' WHERE ' : ' OR ';
         $this->sql .=!empty($arr) ? $where . implode(' OR ', $arr) : '';
         return $this;
     }

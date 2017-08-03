@@ -7,7 +7,7 @@
  * @link https://github.com/firdows/bangoy
  * @package lib.rout
  */
-$title = 'โรงพยาบาลส่งเสริมสุขภาพตำบลบาโงย';
+$title = 'สหกรณ์ออมทรัพย์ SSUP GROUP';
 $content = '';
 if (isset($_GET['r'])) {
     @list($module, $action) = @explode('/', $_GET['r']);

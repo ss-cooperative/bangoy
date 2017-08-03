@@ -14,11 +14,11 @@
  * @param type $strDate
  * @return type
  */
-function convDateToDb($strDate) {
+function convDateToDb($strDate,$separator = '-') {
     $year = '0000';
     $month = '00';
     $day = '00';
-    list($day, $month, $year) = explode('-', $strDate);
+    list($day, $month, $year) = explode($separator, $strDate);
     return @implode('-', [$year, $month, $day]);
 }
 
@@ -27,12 +27,12 @@ function convDateToDb($strDate) {
  * @param type $strDate
  * @return type
  */
-function convDateToDisplay($strDate) {
+function convDateToDisplay($strDate,$separator = '-') {
     $year = '0000';
     $month = '00';
     $day = '00';
     list($year, $month, $day) = explode('-', $strDate);
-    return @implode('-', [$day, $month, $year]);
+    return @implode($separator, [$day, $month, $year]);
 }
 
 /**
@@ -287,4 +287,16 @@ function updateQqq($p_id, $status) {
         echo $res->sql;
         exit();
     }
+}
+
+
+function rout($rout='',$arg = []){
+    $str_arg = [];
+    foreach($arg as $key =>$value){
+        $str_arg[] = $key."=".$value;
+    }
+    $rout = $rout?"?r=".$rout:"";
+    $str_arg = ($str_arg)?"&".implode("&",$str_arg):"";
+   
+    return "index.php".$rout.$str_arg;
 }

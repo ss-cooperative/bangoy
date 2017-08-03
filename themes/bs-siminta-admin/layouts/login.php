@@ -20,15 +20,15 @@
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-4 text-center logo-margin ">
-                    <img src="<?= $asset_path ?>assets/img/logo_full.png" alt="" width="100%"/>
+                    <img src="<?= $asset_path ?>assets/img/logo_full.png" alt="" width="80%"/>
                 </div>
                 <div class="col-md-4 col-md-offset-4">
                     <div class="login-panel panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">กรุณาเข้าสู่ระบบ</h3>
+                            <h3 class="panel-title">สหกรณ์ออมทรัพย์ SSUP GROUP</h3>
                         </div>
                         <div class="panel-body">
-
+                            <p>กรุณาเข้าสู่ระบบ</p>
                             <form role="form" action="" method="POST">
                                 <fieldset>
                                     <div class="form-group">

@@ -8,10 +8,18 @@
  * @package lib.variable
  */
 
+######## คำนำหน้า
+$prefix = [];
+$prefix['Mr.'] = 'นาย';
+$prefix['Mrs.'] = 'นาง';
+$prefix['Ms.'] = 'นางสาว';
+
 ######## เพศ
 $sex = [];
 $sex[] = ['sex' => 'm', 'title' => 'ชาย'];
 $sex[] = ['sex' => 'f', 'title' => 'หญิง'];
+
+
 
 ######## สถานภาพ
 $p_status = [];

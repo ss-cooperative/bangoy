@@ -15,12 +15,15 @@ else:
         <!-- Core CSS - Include with every page -->
         <link href="<?= $asset_path ?>assets/plugins/bootstrap/bootstrap.css" rel="stylesheet"/>
         <link href="<?= $asset_path ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        <link href="<?= $asset_path ?>assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
-        <link href="<?= $asset_path ?>assets/css/style.css" rel="stylesheet" />
+        <link href="<?= $asset_path ?>assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />        
         <link href="<?= $asset_path ?>assets/css/main-style.css" rel="stylesheet" />
+        <link href="<?= $asset_path ?>assets/css/style.css" rel="stylesheet" />
         <!-- Page-Level CSS -->
         <link href="<?= $asset_path ?>assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
         <script src="<?= $asset_path ?>assets/plugins/jquery-1.10.2.js"></script>
+        
+        <!-- Custom CSS -->
+        <link href="<?= $asset_path ?>assets/css/shop-homepage.css" rel="stylesheet">
     </head>
     <body>
         <!--  wrapper -->
@@ -36,14 +39,16 @@ else:
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="index.php">
-                        <img src="<?= $asset_path ?>assets/img/logo.png" alt=""  height="70"/>
+                            Co-Op
+<!--                        <img src="<?= $asset_path ?>assets/img/logo.png" alt=""  height="70"/>-->
                     </a>
                 </div>
                 <!-- end navbar-header -->
                 
                 <div class="navbar-form navbar-left hidden-xs" >
                     <a  href="index.php">
-                    <img src="<?= $asset_path ?>assets/img/logo_label.png" alt="" height="55" />
+                    <img src="<?= $asset_path ?>assets/img/logo_label.png" alt="" height="45" />
+                    <span style="font-size: 20px"> สหกรณ์ออมทรัพย์ SSUP GROUP</span>
                     </a>
       </div>
                 
@@ -151,7 +156,7 @@ else:
                 <div class="row hidden-print">
                     <!-- Page Header -->
                     <div class="col-lg-12">
-                        <h1 class="page-header"><?=$title?></h1>
+                        <h3 class="page-header"><?=$title?></h3>
                     </div>
                     <!--End Page Header -->
                 </div>
@@ -176,8 +181,9 @@ else:
 <!--        <script src="<?= $asset_path ?>assets/scripts/siminta.js"></script>-->
         <!-- Page-Level Plugin Scripts-->
         <script src="<?= $asset_path ?>assets/plugins/morris/raphael-2.1.0.min.js"></script>
-        <script src="<?= $asset_path ?>assets/plugins/morris/morris.js"></script>
-        <script src="<?= $asset_path ?>assets/scripts/dashboard-demo.js"></script>
+<!--        <script src="<?= $asset_path ?>assets/plugins/morris/morris.js"></script>
+        <script src="<?= $asset_path ?>assets/scripts/dashboard-demo.js"></script>-->
+        
 
     </body>
 

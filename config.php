@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Mini MVC Bangory
  * 
@@ -21,9 +21,9 @@ error_reporting(E_ERROR | E_PARSE);
  * connect db
  */
 define('host','localhost');
-define('dbname','hospital_db');
+define('dbname','new_coop_db');
 define('username','root');
-define('password','5738980');
+define('password','');
 
 /**
  * theme
@@ -34,3 +34,4 @@ define('_theme','bs-siminta-admin');
  * Path Upload
  */
 define('_pathUpload','uploads/');
+define('js','js/');
