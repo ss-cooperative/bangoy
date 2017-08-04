@@ -23,11 +23,11 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                <img src="<?=genSrcImg($data->p_id)?>" width="100%" height="200" class="img-thumbnail"/>
             </div>
 
-            <div class="col-sm-9">
+            <div class="col-sm-10">
 
                 <table class="table">
                     <tr><th class="text-right" width="20%">รหัสสมาชิก</th><td colspan="3"> <?= $data->account_no ?></td></tr>
@@ -46,7 +46,7 @@
                 </table>               
             </div>
         </div>
-        <?php include '_detailTab.php'; ?>
+        <?php include('_stock.php'); ?>
     </div>
 </div>
 
