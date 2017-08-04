@@ -11,7 +11,7 @@
     <div class="form-group">        
         <label class="control-label col-sm-2" for="Employee_no">เลขที่บัญชีหุ้น:</label>
         <div class="col-sm-7">
-            <input type="text" class="form-control" id="Employee_no" name = "Employee_no" placeholder="เลขประจำตัวพนักงาน"  value="<?=$data->Employee_no?>" />
+            <input type="text" class="form-control" id="Employee_no" name = "Employee_no" placeholder="เลขที่บัญชีหุ้น"  value="<?=$data->Employee_no?>" />
         </div>
     </div>
        

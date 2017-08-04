@@ -30,20 +30,13 @@
 
                
         </form>
-        <br/>
-        
-        <?php 
+      </div>
+</div>
+
+<?php 
         if($data)
         include("_member.php");
         ?>
-        
-        
-        
-        
-
-    </div>
-</div>
-
 
 <link href="js/select2/css/select2.min.css" rel="stylesheet" />
 <script type="text/javascript" src="js/select2/js/select2.min.js"></script>
