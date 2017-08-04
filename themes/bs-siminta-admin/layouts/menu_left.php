@@ -8,14 +8,14 @@
         //'arg'=>['test'=>'1']
         ];
     $arrMenu[]=[
-            'title' => '<i class="fa fa-user"></i> เงินกู้','rout'=>'stock',
+            'title' => '<i class="fa fa-user"></i> รายการหุ้น','rout'=>'stock',
 //            'items' => [
 //                ['title'=>'<i class="fa fa-user"></i> เงินกู้','rout'=>'patient']
 //            ]
         ];
     //$arrMenu[]=['title'=>'<i class="fa fa-tasks"></i> การรักษาพยาบาล','rout'=>'index.php?r=treat'];
-    $arrMenu[]=['title'=>'<i class="fa fa-flask"></i> ยา-เวชภัณฑ์','rout'=>'medicine'];
-    $arrMenu[]=['title'=>'<i class="fa fa-files-o"></i> รายงาน','rout'=>'report'];
+    //$arrMenu[]=['title'=>'<i class="fa fa-flask"></i> ยา-เวชภัณฑ์','rout'=>'medicine'];
+    //$arrMenu[]=['title'=>'<i class="fa fa-files-o"></i> รายงาน','rout'=>'report'];
 ?>
 <!-- side-menu -->
 <ul class="nav" id="side-menu">

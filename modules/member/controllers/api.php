@@ -18,6 +18,20 @@ if(isset($_GET['search_account_no'])){
         ]);
 }
 
+if(isset($_GET['search_employee_no'])){
+    $query = $db->select('members')->where([
+        "Employee_no LIKE '%{$_GET['q']}%' "
+        ])->all();
+    $data=[];
+    foreach($query as $v){
+       $data[] = ['id'=>$v->account_no,'text'=> $v->Employee_no] ;
+    }
+     echo json_encode([
+        'items'=>$data,
+        'total_count'=>count($data)
+        ]);
+}
+
 if(isset($_GET['search_fullname'])){
     $query = $db->select('members')->where([
         "name LIKE '%{$_GET['q']}%' OR lastname LIKE '%{$_GET['q']}%'"

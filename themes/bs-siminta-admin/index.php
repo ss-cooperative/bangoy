@@ -175,6 +175,8 @@ else:
 
         <!-- Core Scripts - Include with every page -->
         
+        <link href="<?= $asset_path ?>assets/css/widget.css" rel="stylesheet" />
+        
         <script src="<?= $asset_path ?>assets/plugins/bootstrap/bootstrap.min.js"></script>
         <script src="<?= $asset_path ?>assets/plugins/metisMenu/jquery.metisMenu.js"></script>
 <!--        <script src="<?= $asset_path ?>assets/plugins/pace/pace.js"></script>-->

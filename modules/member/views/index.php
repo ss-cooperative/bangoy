@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
         <p>
-            <a href="index.php?r=member/create" class="btn btn-success"><i class="fa fa-plus"></i> สมาชิกข้อมูล</a>
+            <a href="index.php?r=member/create" class="btn btn-success"><i class="fa fa-plus"></i> เพิ่มสมาชิก</a>
         </p>
 
         <form class="form-inline" action="" method="get">

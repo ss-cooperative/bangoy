@@ -42,4 +42,4 @@ if (isset($_POST['ok'])) {
 }
 
 $data = $db->select('members')->where(["account_no = '{$_GET['account_no']}'"])->one();
-$title = 'แก้ไขข้อมูลสมาชิก : '.$data->account_no;
+$title = 'แก้ไขข้อมูลสมาชิก ';

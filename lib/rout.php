@@ -15,6 +15,7 @@ if (isset($_GET['r'])) {
     if (is_dir('modules/' . $module)) {
         include_once('modules/' . $module . '/controllers/' . $action . '.php');
         ob_start();
+        if(file_exists(('modules/' . $module . '/views/' . $action . '.php')))
         include_once('modules/' . $module . '/views/' . $action . '.php');
         $content = ob_get_contents();
         ob_end_clean();

@@ -33,21 +33,24 @@ if(isset($_POST['search'])){
     $query = $db->select('members');
     //print_r($_POST);
     $where = [];
-    $where[] = $_POST['account_no']?"account_no = '".$_POST['account_no']."'":'';
-    $where = array_filter($where);
+    switch ($_POST['search_by']){
+        case "account_no":
+            $where[] = $_POST['account_no']?"account_no = '".$_POST['account_no']."'":'';
+        break;
+    
+        case "employee_no":
+            $where[] = $_POST['employee_no']?"account_no = '".$_POST['employee_no']."'":'';
+        break;
+    
+        case "fullname":
+            $where[] = $_POST['fullname']?"account_no = '".$_POST['fullname']."'":'';
+        break;
+    }        
     $query = $where?$query->where($where):$query;
-    $where = [];
-    $where[] = $_POST['fullname']?"account_no = '".$_POST['fullname']."'":'';
-    $where = array_filter($where);
-    $query->orWhere($where);
     //echo $query->sql;
     //exit();
     $data = $query->one();   
-<<<<<<< HEAD
     $db->redirect('stock',['account_no'=>$data->account_no]);
-=======
-    $db->redirect('stock/index',['account_no'=>$_POST['account_no']]);
->>>>>>> a9641c89438222c2dd559e739b7570f32ebe5f81
 }
 
 $data_stock = [];
@@ -61,6 +64,17 @@ if(isset($_GET['account_no'])){
     $data = $query->one();   
     
     $data_stock = $db->select("book_data")->where(["account_no = '".$data->account_no."'","book_type = '3'"])->one();
+    $data_stock_transctions = [];
+    if($data_stock){
+        $data_stock_transactions = $db->select("transactions_stock")->where(["bookac_no = '".$data_stock->bookac_no."'"]);
+        //echo $data_stock_transactions->sql;
+        $data_stock_transactions= $data_stock_transactions->all();
+        //echo $data_stock_transctions->sql;
+    }else{
+        $data_config['fee'] = $db->select('config_value')->where(["category = '03'","section = '01'"])->one();
+        $data_config['unitPrice'] = $db->select('config_value')->where(["category = '04'","section = '01'"])->one();
+        $data_config['unitFirst'] = $db->select('config_value')->where(["category = '04'","section = '02'"])->one();
+    }
     
     
 }

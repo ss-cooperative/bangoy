@@ -58,6 +58,7 @@ class DB extends PDO {
     }
 
     public function where($arr = []) {
+        $arr = array_filter($arr);
         $where = ' WHERE ';
         $this->sql .=!empty($arr) ? $where . implode(' AND ', $arr) : '';
         return $this;
