@@ -41,12 +41,13 @@ if(isset($_POST['search'])){
     //echo $query->sql;
     //exit();
     $data = $query->one();   
+    $db->redirect('stock',['account_no'=>$data->account_no]);
 }
 
 if(isset($_GET['account_no'])){
     //print_r($_POST);
     $where = [];
-    $where[] = $_GET['account_no']?"account_no = '".$_POST['account_no']."'":'';
+    $where[] = $_GET['account_no']?"account_no = '".$_GET['account_no']."'":'';
     $where = array_filter($where);
     $query = $where?$query->where($where):$query;
     $data = $query->one();   
