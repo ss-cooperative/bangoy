@@ -15,7 +15,7 @@ if (isset($_POST['ok'])) {
        
     
     $res = $db->update('members', [
-        'Employee_no' => $_POST['Employee_no'],
+        'employee_id' => $_POST['employee_id'],
         'title' => $_POST['title'],
         'name' => $_POST['name'],
         'lastname' => $_POST['lastname'],

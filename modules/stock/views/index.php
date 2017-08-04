@@ -15,7 +15,7 @@
                 <div class="col-sm-2">
                     <select type="text" class="form-control" id="search_by" name="search_by"> 
                         <option value="account_no">รหัสสมาชิก</option>
-                        <option value="employee_no">รหัสพนักงาน</option>
+                        <option value="employee_id">รหัสพนักงาน</option>
                         <option value="fullname">ชื่อ-สกุล</option>
                     </select>
                 </div>
@@ -28,9 +28,9 @@
                     </div>
                 </div>
 
-                <div class="employee_no choice">
+                <div class="employee_id choice">
                     <div class="col-sm-3">
-                        <select type="text" class="form-control" id="employee_no" name="employee_no"> 
+                        <select type="text" class="form-control" id="employee_id" name="employee_id"> 
                             <option value="">รหัสพนักงาน</option>
                         </select>
                     </div>
@@ -78,10 +78,10 @@ if ($data)
             minimumInputLength: 1
         });
         
-        $('select#employee_no').select2({
+        $('select#employee_id').select2({
             placeholder: "รหัสพนักงาน",
             ajax: {
-                url: "index.php?r=member/api&search_employee_no=1&ajax=1",
+                url: "index.php?r=member/api&search_employee_id=1&ajax=1",
                 dataType: 'json',
                 delay: 250,
                 processResults: function (data, params) {

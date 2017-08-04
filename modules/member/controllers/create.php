@@ -33,12 +33,12 @@ if (isset($_POST['ok'])) {
     $_POST['pv_id'] = isset($_POST['pv_id'])?$_POST['pv_id']:1;
     $res = $db->insert('members', [
         'account_no' => $_POST['account_no'],
-        'Employee_no' => $_POST['Employee_no'],
+        'employee_id' => $_POST['employee_id'],
         'title' => $_POST['title'],
         'name' => $_POST['name'],
         'lastname' => $_POST['lastname'],
         'id_card' => $_POST['id_card'],
-        'birthday' => convDateToDb($_POST['birthday'],'/'),
+        'birthday' => $_POST['birthday'],
         'phone_number' => $_POST['phone_number'],
         'phone_officer' => $_POST['phone_officer'],
         'company' => $_POST['company'],

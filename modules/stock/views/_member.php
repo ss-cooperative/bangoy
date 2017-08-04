@@ -38,7 +38,7 @@
                         <th class="text-right" width="20%">รหัสสมาชิกสหกรณ์</th>
                         <td > <?= $data->account_no ?></td>
                         <th class="text-right" width="20%">รหัสพนักงาน</th>
-                        <td > <?= $data->Employee_no ?></td>
+                        <td > <?= $data->employee_id ?></td>
                     </tr>
                     <tr>
                         <th class="text-right" width="20%">ชื่อ - สกุล</th>

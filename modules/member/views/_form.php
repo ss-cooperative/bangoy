@@ -9,9 +9,9 @@
     </div>
     
     <div class="form-group">        
-        <label class="control-label col-sm-2" for="Employee_no">เลขประจำตัวพนักงาน:</label>
+        <label class="control-label col-sm-2" for="employee_id">เลขประจำตัวพนักงาน:</label>
         <div class="col-sm-7">
-            <input type="text" class="form-control" id="Employee_no" name = "Employee_no" placeholder="เลขประจำตัวพนักงาน"  value="<?=$data->Employee_no?>" />
+            <input type="text" class="form-control" id="employee_id" name = "employee_id" placeholder="เลขประจำตัวพนักงาน"  value="<?=$data->employee_id?>" />
         </div>
     </div>
        

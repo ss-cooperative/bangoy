@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2017 at 12:57 PM
+-- Generation Time: Aug 04, 2017 at 01:23 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -50,12 +50,25 @@ INSERT INTO `appointment` (`app_id`, `p_id`, `app_date`, `app_time`, `app_reason
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bill`
+--
+
+CREATE TABLE `bill` (
+  `id` varchar(15) NOT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `billcol` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `book_data`
 --
 
 CREATE TABLE `book_data` (
   `bookac_no` varchar(15) NOT NULL,
-  `account_no` varchar(15) DEFAULT NULL,
+  `account_no` varchar(15) NOT NULL,
+  `book_type_id` int(11) NOT NULL,
   `book_type` varchar(2) DEFAULT NULL,
   `deposit` double NOT NULL,
   `stock` int(11) NOT NULL,
@@ -67,6 +80,15 @@ CREATE TABLE `book_data` (
   `date_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `book_data`
+--
+
+INSERT INTO `book_data` (`bookac_no`, `account_no`, `book_type_id`, `book_type`, `deposit`, `stock`, `sum_stock`, `status_active`, `book_link`, `date_register`, `officer`, `date_stamp`) VALUES
+('S0002', '201700001', 1, '3', 0, 11, 110, '', 0, '0000-00-00', '1', '2017-08-04 01:39:49'),
+('S0003', '123', 3, '3', 0, 10, 100, '1', 0, '2017-08-04', '1', '2017-08-04 03:38:38'),
+('S0004', '201700001', 3, '3', 0, 14, 140, '1', 0, '2017-08-04', '1', '2017-08-04 03:40:14');
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +96,7 @@ CREATE TABLE `book_data` (
 --
 
 CREATE TABLE `book_type` (
+  `id` int(11) NOT NULL,
   `book_type` varchar(2) NOT NULL,
   `section` int(11) NOT NULL,
   `category` int(11) NOT NULL,
@@ -84,10 +107,10 @@ CREATE TABLE `book_type` (
 -- Dumping data for table `book_type`
 --
 
-INSERT INTO `book_type` (`book_type`, `section`, `category`, `description`) VALUES
-('FI', 0, 0, 'บัญชีฝากประจำ'),
-('SA', 0, 0, 'บัญชีออมทรัพย์'),
-('ST', 0, 0, 'บัญชีหุ้น');
+INSERT INTO `book_type` (`id`, `book_type`, `section`, `category`, `description`) VALUES
+(1, 'FI', 0, 0, 'บัญชีฝากประจำ'),
+(2, 'SA', 0, 0, 'บัญชีออมทรัพย์'),
+(3, 'ST', 0, 0, 'บัญชีหุ้น');
 
 -- --------------------------------------------------------
 
@@ -298,7 +321,7 @@ INSERT INTO `medicine` (`m_id`, `m_name`, `m_volome`, `m_type`, `m_unit`, `m_per
 
 CREATE TABLE `members` (
   `account_no` varchar(15) NOT NULL,
-  `Employee_no` varchar(15) NOT NULL,
+  `employee_id` varchar(15) NOT NULL,
   `title` text NOT NULL,
   `name` text NOT NULL,
   `lastname` text NOT NULL,
@@ -318,9 +341,9 @@ CREATE TABLE `members` (
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`account_no`, `Employee_no`, `title`, `name`, `lastname`, `id_card`, `birthday`, `phone_number`, `phone_officer`, `company`, `department`, `position`, `job_level`, `officer`, `date_regis`) VALUES
-('123', 'กกก', '1', 'คิดถึง', 'วันไหน', '', '0000-00-00', '', '', '', '', '', '', '', '0000-00-00 00:00:00'),
-('201700001', 'A00001', 'Mr.', 'สมชัย', 'สีจัง', '888', '2017-08-05', '66', '4887-5', '55', '', '44', '66', '', '0000-00-00 00:00:00');
+INSERT INTO `members` (`account_no`, `employee_id`, `title`, `name`, `lastname`, `id_card`, `birthday`, `phone_number`, `phone_officer`, `company`, `department`, `position`, `job_level`, `officer`, `date_regis`) VALUES
+('123', 'กกก', '1', 'คิดถึง', 'วันไหน', '', '0000-00-00', '083546521', '5511-5', 'op', '', '', '', '', '0000-00-00 00:00:00'),
+('201700001', 'A00001', 'Mr.', 'สมชัย', 'สีจัง', '1234567891234', '2017-08-05', '66', '4887-5', '55', '', '44', '66', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -565,8 +588,8 @@ CREATE TABLE `transactions_fix` (
 
 CREATE TABLE `transactions_incoming` (
   `tran_no` int(7) UNSIGNED ZEROFILL NOT NULL,
-  `account_no` varchar(15) NOT NULL,
   `bookac_no` varchar(15) NOT NULL,
+  `account_no` varchar(15) DEFAULT NULL,
   `tran_type` text NOT NULL,
   `period` text NOT NULL,
   `amount` double NOT NULL,
@@ -575,6 +598,19 @@ CREATE TABLE `transactions_incoming` (
   `date_tran` date NOT NULL,
   `date_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `transactions_incoming`
+--
+
+INSERT INTO `transactions_incoming` (`tran_no`, `bookac_no`, `account_no`, `tran_type`, `period`, `amount`, `status_active`, `officer`, `date_tran`, `date_stamp`) VALUES
+(0000001, 'S0002', '201700001', 'fee', '08/2017', 50, '1', '1', '2017-08-04', '2017-08-04 03:38:38'),
+(0000002, 'S0004', '201700001', 'fee', '08/2017', 50, '1', '1', '2017-08-04', '2017-08-04 03:40:14'),
+(0000010, 'S0002', NULL, '11', '22', 2, '2', '2', '0000-00-00', '2017-08-04 08:30:59'),
+(0000011, 'S0004', NULL, 'fee', '08/2017', 0, '1', '1', '2017-08-04', '2017-08-04 08:33:00'),
+(0000012, 'S0004', NULL, 'fee', '08/2017', 0, '1', '1', '2017-08-04', '2017-08-04 08:33:06'),
+(0000013, 'S0004', NULL, 'fee', '08/2017', 0, '1', '1', '2017-08-04', '2017-08-04 08:33:30'),
+(0000014, 'S0004', NULL, 'fee', '08/2017', 140, '1', '1', '2017-08-04', '2017-08-04 08:52:47');
 
 -- --------------------------------------------------------
 
@@ -653,8 +689,8 @@ CREATE TABLE `transactions_saving` (
 
 CREATE TABLE `transactions_stock` (
   `tran_no` int(7) UNSIGNED ZEROFILL NOT NULL,
-  `account_no` varchar(15) NOT NULL,
   `bookac_no` varchar(15) NOT NULL,
+  `account_no` varchar(15) NOT NULL,
   `tran_type` text NOT NULL,
   `period` text NOT NULL,
   `unit_stock` int(11) NOT NULL,
@@ -664,6 +700,25 @@ CREATE TABLE `transactions_stock` (
   `date_tran` date NOT NULL,
   `date_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `transactions_stock`
+--
+
+INSERT INTO `transactions_stock` (`tran_no`, `bookac_no`, `account_no`, `tran_type`, `period`, `unit_stock`, `amount`, `status_active`, `officer`, `date_tran`, `date_stamp`) VALUES
+(0000001, 'S0002', '201700001', 'fee', '08/2017', 100, 50, '1', '1', '2017-08-04', '2017-08-04 03:38:38'),
+(0000002, 'S0002', '201700001', 'fee', '08/2017', 140, 50, '1', '1', '2017-08-04', '2017-08-04 03:40:14'),
+(0000003, 'S0004', '', 'fee', '08/2017', 140, 0, '1', '1', '2017-08-04', '2017-08-04 08:24:59'),
+(0000004, 'S0004', '', 'fee', '08/2017', 140, 0, '1', '1', '2017-08-04', '2017-08-04 08:26:28'),
+(0000005, 'S0004', '', 'fee', '08/2017', 140, 0, '1', '1', '2017-08-04', '2017-08-04 08:26:51'),
+(0000006, 'S0004', '', 'fee', '08/2017', 140, 0, '1', '1', '2017-08-04', '2017-08-04 08:27:05'),
+(0000007, 'S0004', '', 'fee', '08/2017', 140, 0, '1', '1', '2017-08-04', '2017-08-04 08:28:05'),
+(0000008, 'S0004', '', 'fee', '08/2017', 140, 0, '1', '1', '2017-08-04', '2017-08-04 08:30:37'),
+(0000009, 'S0004', '', 'fee', '08/2017', 140, 0, '1', '1', '2017-08-04', '2017-08-04 08:30:38'),
+(0000010, 'S0004', '', 'fee', '08/2017', 140, 0, '1', '1', '2017-08-04', '2017-08-04 08:33:00'),
+(0000011, 'S0004', '', 'fee', '08/2017', 140, 0, '1', '1', '2017-08-04', '2017-08-04 08:33:06'),
+(0000012, 'S0004', '', 'fee', '08/2017', 140, 0, '1', '1', '2017-08-04', '2017-08-04 08:33:30'),
+(0000013, 'S0004', '', 'fee', '08/2017', 14, 140, '1', '1', '2017-08-04', '2017-08-04 08:52:47');
 
 -- --------------------------------------------------------
 
@@ -734,16 +789,24 @@ ALTER TABLE `appointment`
   ADD KEY `t_no` (`t_no`);
 
 --
+-- Indexes for table `bill`
+--
+ALTER TABLE `bill`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `book_data`
 --
 ALTER TABLE `book_data`
-  ADD PRIMARY KEY (`bookac_no`);
+  ADD PRIMARY KEY (`bookac_no`),
+  ADD KEY `fk_book_data_book_type1_idx` (`book_type_id`),
+  ADD KEY `fk_book_data_members1_idx` (`account_no`);
 
 --
 -- Indexes for table `book_type`
 --
 ALTER TABLE `book_type`
-  ADD PRIMARY KEY (`book_type`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `config_category`
@@ -872,7 +935,8 @@ ALTER TABLE `transactions_fix`
 -- Indexes for table `transactions_incoming`
 --
 ALTER TABLE `transactions_incoming`
-  ADD PRIMARY KEY (`tran_no`);
+  ADD PRIMARY KEY (`tran_no`),
+  ADD KEY `fk_transactions_incoming_book_data1_idx` (`bookac_no`);
 
 --
 -- Indexes for table `transactions_other_expenses`
@@ -896,7 +960,8 @@ ALTER TABLE `transactions_saving`
 -- Indexes for table `transactions_stock`
 --
 ALTER TABLE `transactions_stock`
-  ADD PRIMARY KEY (`tran_no`);
+  ADD PRIMARY KEY (`tran_no`),
+  ADD KEY `fk_transactions_stock_book_data1_idx` (`bookac_no`);
 
 --
 -- Indexes for table `treat`
@@ -922,10 +987,15 @@ ALTER TABLE `user`
 ALTER TABLE `appointment`
   MODIFY `app_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
+-- AUTO_INCREMENT for table `book_type`
+--
+ALTER TABLE `book_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `config_value`
 --
 ALTER TABLE `config_value`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `gecal_drugs`
 --
@@ -990,7 +1060,7 @@ ALTER TABLE `transactions_fix`
 -- AUTO_INCREMENT for table `transactions_incoming`
 --
 ALTER TABLE `transactions_incoming`
-  MODIFY `tran_no` int(7) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `tran_no` int(7) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `transactions_other_expenses`
 --
@@ -1005,12 +1075,12 @@ ALTER TABLE `transactions_personal_loans`
 -- AUTO_INCREMENT for table `transactions_saving`
 --
 ALTER TABLE `transactions_saving`
-  MODIFY `tran_no` int(7) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `tran_no` int(7) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `transactions_stock`
 --
 ALTER TABLE `transactions_stock`
-  MODIFY `tran_no` int(7) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `tran_no` int(7) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `treat`
 --
@@ -1032,6 +1102,13 @@ ALTER TABLE `appointment`
   ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`p_id`) REFERENCES `patient` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `appointment_ibfk_3` FOREIGN KEY (`t_no`) REFERENCES `treat` (`t_no`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `book_data`
+--
+ALTER TABLE `book_data`
+  ADD CONSTRAINT `fk_book_data_book_type1` FOREIGN KEY (`book_type_id`) REFERENCES `book_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_book_data_members1` FOREIGN KEY (`account_no`) REFERENCES `members` (`account_no`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `gecal_drugs`
@@ -1076,6 +1153,18 @@ ALTER TABLE `receive`
 --
 ALTER TABLE `send`
   ADD CONSTRAINT `send_ibfk_1` FOREIGN KEY (`t_no`) REFERENCES `treat` (`t_no`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transactions_incoming`
+--
+ALTER TABLE `transactions_incoming`
+  ADD CONSTRAINT `fk_transactions_incoming_book_data1` FOREIGN KEY (`bookac_no`) REFERENCES `book_data` (`bookac_no`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transactions_stock`
+--
+ALTER TABLE `transactions_stock`
+  ADD CONSTRAINT `fk_transactions_stock_book_data1` FOREIGN KEY (`bookac_no`) REFERENCES `book_data` (`bookac_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `treat`

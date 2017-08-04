@@ -33,7 +33,7 @@
     <div class="form-group">        
         <label class="control-label col-sm-3" for="amount">ค่าธรรมเนียมแรกเข้า</label>       
         <div class="col-sm-4">
-            <input  class="form-control" type="text" name="amount"  placeholder="ค่าธรรมเนียมแรกเข้า" value="<?= $data_config['fee']->value ?>" />
+            <input  class="form-control" type="text" name="amount"  placeholder="ค่าธรรมเนียมแรกเข้า" value="<?= $config_fee->value ?>" />
         </div>
     </div>
 
@@ -41,13 +41,13 @@
     <div class="form-group">        
         <label class="control-label col-sm-3" for="stock">จำนวนหุ้น</label>       
         <div class="col-sm-2" >
-            <input  class="form-control" type="number" min= '<?= $data_config['unitPrice']->value ?>' id="stock" name="stock" placeholder="จำนวนหุ้น"  value="<?= $data_config['unitPrice']->value ?>"/>
+            <input  class="form-control" type="number" min= '<?= $config_unitPrice->value ?>' id="stock" name="stock" placeholder="จำนวนหุ้น"  value="<?= $config_unitPrice->value ?>"/>
         </div>   
         <label class="control-label col-sm-1 text-left" for="company" style="padding-left:0px;">หุ้น</label>  
 
         <label class="control-label col-sm-1" for="sum_stock">มูลค่า</label>       
         <div class="col-sm-3">
-            <input class="form-control" type="hidden" id="unitFirst" value="<?= $data_config['unitFirst']->value ?>"/>
+            <input class="form-control" type="hidden" id="unitFirst" value="<?= $config_unitFirst->value ?>"/>
             <input class="form-control" type="text" id="sum_stock" name="sum_stock"  placeholder="มูลค่า"  value=""/>
         </div>   
         <label class="control-label col-sm-1" for="position">บาท</label>  

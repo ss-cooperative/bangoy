@@ -18,13 +18,30 @@
             <a href="index.php?r=stock/create" class="btn btn-default"><i class="fa fa-print"></i> พิมพ์</a>
         </div>
         </p>
-        <table class="table">
+
+
+          <table class="table table-condensed">
+                <tr>
+                    <th class="text-right" width='150'>ชำระหุ้นล่าสุด</th> 
+                    <td class="text-left" >ชำระหุ้นล่าสุด</td> 
+                </tr>
+                <tr>
+                    <th class="text-right" width='150'>ทุนเรือนหุ้น</th> 
+                    <td class="text-left" >ชำระหุ้นล่าสุด</td> 
+                </tr>
+            </tbody>
+        </table> 
+       
+
+
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>ลำดับ</th>
-                    <th>วันที่</th>
-                    <th>งวดที่</th>
-                    <th>จำนวน(เงิน)</th>
+                    <th class="text-center" width='150'>วันที่</th>                    
+                    <th class="text-center">รายละเอียด</th>
+                    <th class="text-center" width='150'>จำนวนเงิน</th>
+                    <th class="text-center" width='150'>หุ้นคงเหลือ</th>
+                    <th class="text-center" width='150'>เลขที่ใบเสร็จ</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,12 +51,12 @@
 //                echo $data_stock_transactions->sql;
                 foreach ($data_stock_transactions as $key => $val):
                     ?>
-
-                    <tr>
-                        <td><?= $key + 1 ?></td>
-                        <td><?= $val->date_tran ?></td>
-                        <td><?= $val->period ?></td>
-                        <td><?= $val->amount ?></td>
+                    <tr> 
+                        <td class="text-center"><?= $val->date_tran ?></td>
+                        <td class="text-center"><?= $val->period ?></td>
+                        <td class="text-right"><?= $val->amount ?></td>
+                        <td class="text-right"><?= $val->amount ?></td>
+                        <td ><?= $val->amount ?></td>
                     </tr>
                     <?php
                 endforeach;
@@ -64,7 +81,7 @@
                 <h4 class="modal-title" id="gridSystemModalLabel">ชำระค่าหุ้น</h4>
             </div>
             <div class="modal-body">
-                <?php include("payment.php")?>
+                <?php include("payment.php") ?>
             </div>
         </div>
     </div>
