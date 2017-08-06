@@ -1,3 +1,6 @@
+
+<?php include("_search.php");?>
+
 <div class="panel panel-default">
     <div class="panel-heading">
     <?= $title ?>    
@@ -6,20 +9,10 @@
         <p>
             <a href="index.php?r=member/create" class="btn btn-success"><i class="fa fa-plus"></i> เพิ่มสมาชิก</a>
         </p>
-
-        <form class="form-inline" action="" method="get">
-            <input type="hidden" name="r" value="member">              
-            <div class="form-group">
-                <label for="email" >ค้นหา: </label>
-                <input type="text" class="form-control" id="account_no" name="account_no" placeholder="รหัสสมาชิก" value="<?=$_GET['account_no']?>"/> 
-                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="ชื่อ-สกุล"  value="<?=$_GET['fullname']?>"/>
-                <input type="submit" name="search" value="search" class="btn btn-success" >
-            </div>    
-        </form>
-        <br/>
         <table class="table table-striped table-bordered table-hover dataTable no-footer">
             <tr>
                 <td>รหัสสมาชิก</td>
+                <td>รหัสพนักงาน</td>
                 <td>ชื่อ-สกุล</td>
                 <td>รายละเอียด</td>
                 <td>Action</td>
@@ -33,6 +26,9 @@
                 <tr>
                     <td>
                         <?= $val->account_no ?>
+                    </td>
+                    <td>
+                        <?= $val->employee_id ?>
                     </td>
                     <td >
                         <img src="<?= genSrcImg($val->account_no) ?>" width="40" height="45" class="img-responsive img-thumbnail"/>&nbsp;<a href="index.php?r=member/view&account_no=<?= $val->account_no ?>">

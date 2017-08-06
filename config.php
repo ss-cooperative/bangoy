@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Mini MVC Bangory
  * 
@@ -16,7 +16,7 @@
 date_default_timezone_set("Asia/Bangkok");
 session_start();
 
-error_reporting( E_WARNING );
+#error_reporting( E_WARNING );
 
 /**
  * connect db
